@@ -1,0 +1,6 @@
+.image{
+     height:40em; background-size:cover; width:auto;
+     background-image:url('https://wallpapercave.com/wp/wp2649830.jpg');
+     background-position:50% 50%;
+     display: flex;
+   }
