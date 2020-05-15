@@ -1,4 +1,5 @@
-<mat-toolbar color="primary">
+<div role="heading" aria-level="1">
+  <mat-toolbar color="primary">
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
@@ -11,7 +12,7 @@
       <div fxShow="true" fxHide.lt-md>
         <!-- The following menu items will be hidden on both SM and XS screen sizes -->
         <a routerLink="/home" mat-button>Home</a>
-        <a href="#" mat-button>Menu Item 2</a>
+        <a routerLink="/tour-package" mat-button>Tour Packages</a>
         <a href="#" mat-button>Menu Item 3</a>
         <a href="#" mat-button>Menu Item 4</a>
         <a href="#" mat-button>Menu Item 5</a>
@@ -24,7 +25,7 @@
     <mat-sidenav #sidenav>
       <mat-nav-list>
         <a (click)="sidenav.toggle()" routerLink="/home" mat-list-item>Home</a>
-        <a href="#" mat-list-item>Menu Item 1</a>
+        <a (click)="sidenav.toggle()" routerLink="/tour-package" mat-list-item>Tour Packages</a>
         <a href="#" mat-list-item>Menu Item 2</a>
         <a href="#" mat-list-item>Menu Item 3</a>
         <a href="#" mat-list-item>Menu Item 4</a>
@@ -33,3 +34,4 @@
       </mat-nav-list>
     </mat-sidenav>
   </mat-sidenav-container>
+</div>
