@@ -1,0 +1,24 @@
+.package-card {
+  max-width: 200px;
+  max-height: 800px;
+  margin: 10px;
+}
+
+.package-header-image {
+  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+  background-size: cover;
+}
+
+.card-title, p {
+  max-width: 200px;
+  max-height: 100px;
+  word-wrap: break-word;
+  white-space: normal;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-title {
+  margin-right: 10px !important;
+  
+}
