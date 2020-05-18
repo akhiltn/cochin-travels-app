@@ -15,11 +15,22 @@ img {
 
 #title {
   font-family: "Times New Roman", Times, serif;
-  font-size: 40px;
+  font-size: 4vw;
 }
+
+@media only screen and (max-width: 600px) {
+  #title {
+  font-size: 7vw;
+}
+}
+
 
 .list-item-active {
   font-weight: bold;
   color: #ffbf00 !important;
   background: rgba(240, 237, 237, 0.507);
+}
+
+a {
+  font-size: 10px;
 }

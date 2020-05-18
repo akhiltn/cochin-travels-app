@@ -2,19 +2,18 @@
 	<mat-card class="package-card" *ngFor="let packageInfo of packageInfoList">
 		<mat-card-header>
 			<mat-card-title>
-				<div class="card-title">4 Days 5 Nights</div>
+				<div class="card-title">{{packageInfo.title}}</div>
 			</mat-card-title>
-			<mat-card-subtitle>From 9999/- Onwards!!</mat-card-subtitle>
+			<mat-card-subtitle><em class="flash">{{packageInfo.subtitle}}</em></mat-card-subtitle>
 		</mat-card-header>
-		<img mat-card-image src="https://picsum.photos/seed/picsum/200">
+		<img mat-card-image alt="Placeholder Image" [src]="packageInfo.imageURL">
 		<mat-card-content>
 			<p>
-				{{packageInfo.ShortName}}
+				{{packageInfo.content}}
 			</p>
 		</mat-card-content>
-		<mat-card-actions>
-			<button mat-button>LIKE</button>
-			<button mat-button>SHARE</button>
+		<mat-card-actions align='end' >
+			<button mat-button routerLink = "/about">VIEW</button>
 		</mat-card-actions>
 	</mat-card>
 </div>

@@ -10,8 +10,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FooterMenuComponent } from './footer-menu/footer-menu.component';
 import { TourPackageComponent } from './home/tour-package/tour-package.component';
 import { AboutComponent } from './about/about.component';
-import { HomeModule } from './home/home.module';
 import { HttpClientModule } from '@angular/common/http';
+import { PackageInfoResolverService } from './home/package-info-resolver.service';
+import { PackageInfoService } from './home/package-info.service';
+import { BookingComponent } from './booking/booking.component';
 
 
 @NgModule({
@@ -19,17 +21,19 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     HeaderNavComponent,
     FooterMenuComponent,
-    AboutComponent
+    AboutComponent,
+    HomeComponent,
+    TourPackageComponent,
+    BookingComponent
   ],
   imports: [
     RoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MaterialModule,
-    HomeModule
+    MaterialModule
   ],
-  providers: [],
+  providers: [PackageInfoService, PackageInfoResolverService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

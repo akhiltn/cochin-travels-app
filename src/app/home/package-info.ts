@@ -1,8 +1,8 @@
 export interface PackageInfo {
-    PackageID:   number;
-    PackageType: string;
-    ShortName:   string;
-    NightAndDay: string;
-    Description: string;
-    ImgSrc:      string;
+    packageID:   string;
+    packageType: string;
+    title:       string;
+    subtitle:    string;
+    content:     string;
+    imageURL:    string;
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { PackageInfoServiceService } from '../package-info-service.service';
 import { PackageInfo } from '../package-info';
 
@@ -9,12 +9,12 @@ import { PackageInfo } from '../package-info';
 })
 export class TourPackageComponent implements OnInit {
 
-  packageInfoList: PackageInfo[];
+  @Input() packageInfoList: PackageInfo[];
 
-  constructor(private packageInfoService : PackageInfoServiceService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.packageInfoList = this.packageInfoService.getpackageInfo();
+
   }
 
 }

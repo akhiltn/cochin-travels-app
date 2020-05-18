@@ -1,24 +1,38 @@
 .package-card {
-  max-width: 200px;
-  max-height: 800px;
+  max-width: 180px;
   margin: 10px;
 }
 
-.package-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
-}
-
-.card-title, p {
-  max-width: 200px;
-  max-height: 100px;
-  word-wrap: break-word;
-  white-space: normal;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
 .card-title {
-  margin-right: 10px !important;
-  
+  font-size: 16px;
+}
+
+.mat-card-subtitle {
+  font-size: 10px;
+}
+
+p {
+  font-size: 10px;
+}
+
+img {
+  max-height: 150px;
+}
+
+button {
+  background-color: green;
+}
+
+.flash {
+   animation-name: flash;
+    animation-duration: 0.2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-play-state: running;
+}
+
+@keyframes flash {
+    from {color: red;}
+    to {color: white;}
 }
