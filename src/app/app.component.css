@@ -1,7 +1,32 @@
 main {
-  background-color: #00bd03;
+  background-color: white;
   background-image: url("https://source.unsplash.com/Jqc2nOH3u3Y/1600x900");
   background-repeat: repeat-y;
-  min-height: 300px;
+  min-height: 800px;
 }
 
+.mat-icon {
+  font-size: 15px;
+}
+
+.example-button-container {
+  display: flex;
+  justify-content: center;
+  width: 120px;
+  float: right;
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+button {
+  background-color: green !important;
+  color: white !important;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  z-index: 1;
+}

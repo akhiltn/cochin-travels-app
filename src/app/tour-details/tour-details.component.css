@@ -1,0 +1,45 @@
+.header {
+  text-align: center;
+  font-size:2vw;
+  border: 1px solid black;
+  background: rgba(228, 139, 5, 0.945);
+}
+
+.content {
+  padding: 10px;
+  font-size:1.5vw;
+}
+
+mat-grid-list {
+  background: rgba(5, 29, 6, 0.719);
+  border: 1px solid black;
+  margin: 10px;
+  color: white;
+}
+
+img {
+  width: 300px;
+  object-fit: cover;
+}
+
+section {
+  font-size: 1.2vw;
+  border-top: 1px solid red;
+  border-bottom: 1px solid red;
+  min-width: 100%;
+  text-align: justify;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 600px) {
+  .header {
+    font-size: 4vw;
+  }
+  section {
+    font-size: 2.2vw;
+  }
+}
+
+
+

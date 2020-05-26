@@ -1,0 +1,22 @@
+<div class="main-container" *ngIf="itenaryArray">
+
+	<div class="header">
+		<h3>STANDARD TOUR PACKAGE<br>(04 Nights / 05 Days)</h3>
+			<p>02Nt Wynad, 02Nt Coorg ( Pickup and drop Calicut )</p>
+	</div>
+
+	<div class="content">
+		<mat-grid-list cols="4" rowHeight="2:1" rowHeight="150px" gutterSize='10px'
+			*ngFor="let itenary of itenaryArray">
+			<mat-grid-tile>
+				<img [src]="itenary.imageURL" alt="destination_img" layout-fill>
+        </mat-grid-tile>
+				<mat-grid-tile colspan='3'>
+					<section>
+						<h2>{{itenary.title}}</h2>
+						<p>{{itenary.content}}</p>
+					</section>
+				</mat-grid-tile>
+		</mat-grid-list>
+	</div>
+</div>

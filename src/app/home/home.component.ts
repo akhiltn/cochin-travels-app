@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { Router, ActivatedRoute } from "@angular/router";
-import { PackageInfoService } from "./package-info.service";
-import { PackageInfo } from "./package-info";
+import { PackageInfoService } from "../common/package-info.service";
+import { PackageInfo } from "../common/package-info";
 
 @Component({
   selector: "app-home",

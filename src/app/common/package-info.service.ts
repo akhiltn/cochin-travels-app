@@ -6,8 +6,8 @@ import { Subject, Observable } from "rxjs";
 @Injectable()
 export class PackageInfoService {
 
-  private subject: Subject<PackageInfo>;
   private packageInfoList: PackageInfo[];
+  //private dataUrl = "https://sheetdb.io/api/v1/99hkiyco5j2az";
   private dataUrl = "assets/jsonData/package-inshort.json";
 
   constructor(private http: HttpClient) {

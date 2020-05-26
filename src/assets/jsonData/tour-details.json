@@ -1,0 +1,44 @@
+[
+ {
+   "packageID": 4,
+   "dayCount": 1,
+   "title": "Day 01 – Cochin",
+   "content": "You are greeted on arrival at the Kochi International Airport/Railway station by The Travel Planners/ representative and transfer to, visit Athirapilly waterfalls and Vazhachal Waterfalls. The Athirappilly Falls are situated on the Chalakudy river, which originates in the upper reaches of the Western Ghats. Overnight at The Bthania Resorts Room: Honeymoon Deluxe",
+   "imageURL": "https://picsum.photos/200/300"
+ },
+ {
+   "packageID": 4,
+   "dayCount": 2,
+   "title": "Day 02 – Munnar",
+   "content": "Morning after Breakfast depart for Munnar (130 kms / 4 hrs) enjoying the scenic beauty & the marvelous waterfalls(Cheeyappara), Wallera Waterfalls, Pothemedu View point, Spice Garden Visits, Elephant ride, etc and drive through high mountains with the low flying clouds passing by. You can do on the way sightseeing of Munnar and witness tea gardens spread like a green carpet over hundreds of kilometers, lush green hills, a place so difficult to describe, very low population too far from pollution, most of the area covered by Tata tea. Check in and evening relax at hotel. Overnight at Resort – Deluxe Room",
+   "imageURL": "https://picsum.photos/200/300"
+ },
+ {
+   "packageID": 4,
+   "dayCount": 3,
+   "title": "Day 03 – Munnar",
+   "content": "Morning sightseeing in Munnar which includes; \nRajamala – Eravikulam National Park, Mattupetty, Eco-Point, Tea Museum, Rose Garden etc. \nYou can also enjoy Optional  boating in the Lake, Kathakali -Traditional Art form of Kerala, Kalari Payattu, Ayurvedic Massage etc. Overnight at Resort – Deluxe Room\n",
+   "imageURL": "https://picsum.photos/200/300"
+ },
+ {
+   "packageID": 4,
+   "dayCount": 4,
+   "title": "Day 04 – Thekkady",
+   "content": "Morning drive to Thekkady covering a distance of 110 kms / 3.5 hrs through lush green western Ghats though Gap Road, Periakanal Waterfalls, Ginger,  cardamom, Teak and Rubber planatations. Check into the Resort. After lunch visit spice plantation like cardamom, Pepper, Coffee, and tea estate etc… On way back to hotel you could stop at the local market and pick up some fragrant spices. Overnight at Resort",
+   "imageURL": "https://picsum.photos/200/300"
+ },
+ {
+   "packageID": 4,
+   "dayCount": 5,
+   "title": "Day 05 – Alleppy/Houseboat",
+   "content": "On this morning after breakfast will drive to Alleppey, this water locked place is endowed with immense natural beauty and array of rivers, canals and lakes ideal for boat cruise. On arrival check in to a traditional Kerala Style Houseboat and Cruise through the backwaters is the fabulous way to explore the fascinating beauty of the backwaters. Stay overnight in the Houseboat (Deluxe A/C).",
+   "imageURL": "https://picsum.photos/200/300"
+ },
+ {
+   "packageID": 4,
+   "dayCount": 6,
+   "title": "Day 06 – Departure",
+   "content": "Today morning after breakfast disembark Houseboat and departure transfer to Cochin Airport/Railway Station",
+   "imageURL": "https://picsum.photos/200/300"
+ }
+]

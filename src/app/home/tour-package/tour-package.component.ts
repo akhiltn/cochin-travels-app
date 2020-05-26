@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { PackageInfoServiceService } from '../package-info-service.service';
-import { PackageInfo } from '../package-info';
+import { PackageInfo } from '../../common/package-info';
 
 @Component({
   selector: 'tour-package',

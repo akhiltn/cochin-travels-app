@@ -4,8 +4,9 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { TourPackageComponent } from './home/tour-package/tour-package.component';
 import { AboutComponent } from './about/about.component';
-import { PackageInfoResolverService } from './home/package-info-resolver.service';
+import { PackageInfoResolverService } from './common/package-info-resolver.service';
 import { BookingComponent } from './booking/booking.component';
+import { TourDetailsComponent } from './tour-details/tour-details.component';
 
 const routes: Routes = [
   {
@@ -16,6 +17,7 @@ const routes: Routes = [
   },
   { path: 'about', component: AboutComponent },
   { path: 'booking', component: BookingComponent },
+   { path: 'tourDetails', component: TourDetailsComponent },
   { path: '', redirectTo: '/home', pathMatch: 'full' }
 
 ];

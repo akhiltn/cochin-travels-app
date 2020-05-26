@@ -11,9 +11,11 @@ import { FooterMenuComponent } from './footer-menu/footer-menu.component';
 import { TourPackageComponent } from './home/tour-package/tour-package.component';
 import { AboutComponent } from './about/about.component';
 import { HttpClientModule } from '@angular/common/http';
-import { PackageInfoResolverService } from './home/package-info-resolver.service';
-import { PackageInfoService } from './home/package-info.service';
+import { PackageInfoResolverService } from './common/package-info-resolver.service';
+import { PackageInfoService } from './common/package-info.service';
 import { BookingComponent } from './booking/booking.component';
+import { TourDetailsComponent } from './tour-details/tour-details.component';
+import { TourDetailsService } from './common/tour-details.service';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { BookingComponent } from './booking/booking.component';
     AboutComponent,
     HomeComponent,
     TourPackageComponent,
-    BookingComponent
+    BookingComponent,
+    TourDetailsComponent
   ],
   imports: [
     RoutingModule,
@@ -33,7 +36,7 @@ import { BookingComponent } from './booking/booking.component';
     HttpClientModule,
     MaterialModule
   ],
-  providers: [PackageInfoService, PackageInfoResolverService],
+  providers: [PackageInfoService, PackageInfoResolverService, TourDetailsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

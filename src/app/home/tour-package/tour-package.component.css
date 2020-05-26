@@ -20,12 +20,12 @@ img {
 }
 
 button {
-  background-color: green;
+  background-color: rgb(23, 102, 23);
 }
 
 .flash {
    animation-name: flash;
-    animation-duration: 0.2s;
+    animation-duration: 0.5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
@@ -33,6 +33,6 @@ button {
 }
 
 @keyframes flash {
-    from {color: red;}
+    from {color: lightblue;}
     to {color: white;}
 }

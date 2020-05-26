@@ -5,12 +5,12 @@ import { PackageInfoService } from './package-info.service';
 import { map } from 'rxjs/operators';
 
 @Injectable()
-export class PackageInfoResolverService implements Resolve<any>{
+export class PackageInfoResolverService implements Resolve<PackageInfo[]>{
 
   constructor(private packageInfoService: PackageInfoService) { }
 
   resolve(){
-    return this.packageInfoService.getpackageInfo().pipe(map(packageInfoList => packageInfoList));
+    return this.packageInfoService.getpackageInfo();
   }
 
 }
