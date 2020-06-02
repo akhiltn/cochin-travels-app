@@ -1,12 +1,11 @@
-<div class="main-container" *ngIf="itenaryArray">
+<div class="main-container" *ngIf="itenaryArray && packageInfo">
 
 	<div class="header">
-		<h3>STANDARD TOUR PACKAGE<br>(04 Nights / 05 Days)</h3>
-			<p>02Nt Wynad, 02Nt Coorg ( Pickup and drop Calicut )</p>
+		<h3>{{packageInfo.title}}</h3>
+			<p>{{packageInfo.content}}</p>
 	</div>
-
 	<div class="content">
-		<mat-grid-list cols="4" rowHeight="2:1" rowHeight="150px" gutterSize='10px'
+		<mat-grid-list cols="4" rowHeight="2:1" rowHeight="200px" gutterSize='10px'
 			*ngFor="let itenary of itenaryArray">
 			<mat-grid-tile>
 				<img [src]="itenary.imageURL" alt="destination_img" layout-fill>
@@ -19,4 +18,5 @@
 				</mat-grid-tile>
 		</mat-grid-list>
 	</div>
+  <button mat-raised-button routerLink = "/home">Back</button>
 </div>

@@ -1,8 +1,8 @@
 .header {
   text-align: center;
-  font-size:2vw;
+  font-size:1.5vw;
   border: 1px solid black;
-  background: rgba(228, 139, 5, 0.945);
+  background: rgba(188, 207, 14, 0.945);
 }
 
 .content {
@@ -11,11 +11,12 @@
 }
 
 mat-grid-list {
-  background: rgba(5, 29, 6, 0.719);
+  background: rgba(5, 29, 6, 0.829);
   border: 1px solid black;
   margin: 10px;
   color: white;
 }
+
 
 img {
   width: 300px;
@@ -23,13 +24,31 @@ img {
 }
 
 section {
-  font-size: 1.2vw;
+  font-size: .9vw;
   border-top: 1px solid red;
   border-bottom: 1px solid red;
   min-width: 100%;
   text-align: justify;
   margin-right: 10px;
   margin-left: 10px;
+  max-height: 90%;
+}
+
+section p {
+  padding-right: 10px;
+}
+
+button {
+  background-color: rgba(0, 128, 0) !important;
+  color: white !important;
+  position: sticky;
+  bottom: 10px;
+  left: 5px;
+  z-index: 1;
+  margin-bottom: 5px;
+  min-height: 50px;
+  min-width: 100px;
+  font-weight: bold;
 }
 
 @media screen and (max-width: 600px) {
@@ -37,7 +56,7 @@ section {
     font-size: 4vw;
   }
   section {
-    font-size: 2.2vw;
+    font-size: 2vw;
   }
 }
 

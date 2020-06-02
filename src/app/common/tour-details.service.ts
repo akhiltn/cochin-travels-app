@@ -1,20 +1,23 @@
 import { Injectable } from '@angular/core';
 import { ItenaryInfo } from "./itenary-info";
 import { HttpClient } from "@angular/common/http";
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Injectable()
 export class TourDetailsService {
 
-  private itenaryList: ItenaryInfo[];
+  itenaryArray: ItenaryInfo[];
   private dataUrl = "assets/jsonData/tour-details.json";
 
-  constructor(private http: HttpClient) {
-   
-  }
+  constructor(private http: HttpClient) {  }
 
   getItenaryInfo(): Observable<ItenaryInfo[]>{
-    return this.http.get<ItenaryInfo[]>(this.dataUrl) 
+    return this.http.get<ItenaryInfo[]>(this.dataUrl);
   }
 
+  async getItenaryInfoById(id: number): Promise<ItenaryInfo[]>{
+    await this.getItenaryInfo().toPromise().then(res => this.itenaryArray = res);   
+    return this.itenaryArray.filter(data => data.packageID == id);
+  }
 }

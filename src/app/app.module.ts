@@ -16,6 +16,9 @@ import { PackageInfoService } from './common/package-info.service';
 import { BookingComponent } from './booking/booking.component';
 import { TourDetailsComponent } from './tour-details/tour-details.component';
 import { TourDetailsService } from './common/tour-details.service';
+import { ErrorPageComponent } from './common/error-page/error-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { TourDetailsActivatorService } from './common/tour-details-activator.service';
 
 
 @NgModule({
@@ -27,16 +30,18 @@ import { TourDetailsService } from './common/tour-details.service';
     HomeComponent,
     TourPackageComponent,
     BookingComponent,
-    TourDetailsComponent
+    TourDetailsComponent,
+    ErrorPageComponent
   ],
   imports: [
     RoutingModule,
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     MaterialModule
   ],
-  providers: [PackageInfoService, PackageInfoResolverService, TourDetailsService],
+  providers: [PackageInfoService, PackageInfoResolverService, TourDetailsService, TourDetailsActivatorService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

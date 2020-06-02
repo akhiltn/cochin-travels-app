@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { TourDetailsService } from '../common/tour-details.service';
-import { ItenaryInfo } from "./itenary-info";
+import { ActivatedRoute } from '@angular/router';
+import { ItenaryInfo } from '../common/itenary-info';
+import { PackageInfoService } from '../common/package-info.service';
+import { PackageInfo } from '../common/package-info';
 
 @Component({
   selector: 'tour-details',
@@ -10,20 +13,16 @@ import { ItenaryInfo } from "./itenary-info";
 export class TourDetailsComponent implements OnInit {
 
   itenaryArray: ItenaryInfo[];
-  heroes = ['Windstorm', 'Bombasto', 'Magneta', 'Tornado'];
+  packageInfo: PackageInfo;
+  id: number;
 
-  constructor(private tourDetailService: TourDetailsService) { }
+  constructor(private tourDetailService: TourDetailsService, private route: ActivatedRoute, private packageInfoService: PackageInfoService) { }
 
   ngOnInit() {
-    this.tourDetailService.getItenaryInfo().subscribe(
-      (data: ItenaryInfo[]) => {
-        this.itenaryArray = data;
-        console.log('Hello');
-        console.log(this.itenaryArray);
-        }
-      );
-    
+    this.route.params.subscribe(params => this.id = +params['id']);
+    this.tourDetailService.getItenaryInfoById(this.id).then((res: ItenaryInfo[]) => this.itenaryArray = res);
+    this.packageInfoService.getpackageById(this.id).then((res: PackageInfo) => this.packageInfo = res);
   }
-  
+
 
 }

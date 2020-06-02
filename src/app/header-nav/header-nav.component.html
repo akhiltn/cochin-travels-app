@@ -1,12 +1,12 @@
 <div role="heading" aria-level="1">
-  <mat-toolbar>
+  <mat-toolbar color="primary">
     <mat-toolbar-row>
       <button mat-icon-button (click)="sidenav.toggle()" fxShow="true" fxHide.gt-sm>
         <mat-icon>menu</mat-icon>
       </button>
       <a routerLink="/home" mat-button>
         <img src="https://raw.githubusercontent.com/akhiltn/cochin-travels-app/feature4_optimize/src/assets/images/logo-xs.png">
-        <span id="title">&emsp;Cochin Travels</span>
+        <span id="title">Cochin Travels</span>
       </a>
       <span class="menu-spacer"></span>
       <div fxShow="true" fxHide.lt-md>
@@ -21,7 +21,7 @@
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <mat-sidenav-container class="custom-sidenav-container" fxFlexFill>
+  <mat-sidenav-container color="primary" class="custom-sidenav-container" fxFlexFill>
     <mat-sidenav #sidenav>
       <mat-nav-list>
         <a mat-list-item (click)="sidenav.toggle()" routerLink="/home" routerLinkActive="list-item-active">Home</a>

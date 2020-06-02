@@ -1,0 +1,37 @@
+.header {
+  text-align: center;
+  font-size: 15px;
+  border: 1px solid black;
+  background: rgba(188, 207, 14, 0.945);
+}
+
+form {
+  background-color: rgba(207, 230, 238, 0.85);
+  border: 3px solid rgb(65, 25, 175);
+  padding: 10px;
+  width: 50%;
+  margin: 50px auto;
+}
+
+.booking-form-field {
+  width: 100%;
+}
+
+.address_field {
+  min-height: 30px;
+}
+
+.booking-info {
+    color: #4F8A10;
+    background-color: #DFF2BF;
+    margin: 150px auto;
+    width: 40%;
+    padding: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  .booking-info, form {
+    width: 80%;
+  }
+}
+

@@ -9,6 +9,11 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatCardModule} from '@angular/material/card';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   imports: [ 
@@ -21,7 +26,12 @@ import {MatChipsModule} from '@angular/material/chips';
     MatGridListModule,
     MatTabsModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports: [
     MatToolbarModule,
@@ -33,7 +43,12 @@ import {MatChipsModule} from '@angular/material/chips';
     MatGridListModule,
     MatTabsModule,
     MatCardModule,
-    MatChipsModule
+    MatChipsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ]    
 })
 
