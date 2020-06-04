@@ -1,7 +1,7 @@
 <div class="main-container" *ngIf="itenaryArray && packageInfo">
 
 	<div class="header">
-		<h3>{{packageInfo.title}}</h3>
+		<h3>{{packageInfo.packageType}} Tour Package - {{packageInfo.title}}</h3>
 			<p>{{packageInfo.content}}</p>
 	</div>
 	<div class="content">
@@ -18,5 +18,5 @@
 				</mat-grid-tile>
 		</mat-grid-list>
 	</div>
-  <button mat-raised-button routerLink = "/home">Back</button>
+  <button class="book-button" mat-raised-button [routerLink] = "['/booking',packageInfo.packageID]">Book Package</button>
 </div>

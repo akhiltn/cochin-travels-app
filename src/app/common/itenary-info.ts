@@ -1,5 +1,5 @@
 export interface ItenaryInfo {
-    packageID: number;
+    packageID: string;
     dayCount:  number;
     title:     string;
     content:   string;

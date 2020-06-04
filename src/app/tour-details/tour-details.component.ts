@@ -14,12 +14,12 @@ export class TourDetailsComponent implements OnInit {
 
   itenaryArray: ItenaryInfo[];
   packageInfo: PackageInfo;
-  id: number;
+  id: string;
 
   constructor(private tourDetailService: TourDetailsService, private route: ActivatedRoute, private packageInfoService: PackageInfoService) { }
 
   ngOnInit() {
-    this.route.params.subscribe(params => this.id = +params['id']);
+    this.route.params.subscribe(params => this.id = params['id']);
     this.tourDetailService.getItenaryInfoById(this.id).then((res: ItenaryInfo[]) => this.itenaryArray = res);
     this.packageInfoService.getpackageById(this.id).then((res: PackageInfo) => this.packageInfo = res);
   }

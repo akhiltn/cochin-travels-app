@@ -14,6 +14,8 @@ import { ErrorStateMatcher } from "@angular/material/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { finalize, switchMap } from "rxjs/operators";
 import { ActivatedRoute, ParamMap } from "@angular/router";
+import { PackageInfo } from "../common/package-info";
+import { PackageInfoService } from "../common/package-info.service";
 /** Error when invalid control is dirty, touched, or submitted. */
 export class CrossFieldStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -45,6 +47,8 @@ export class BookingComponent implements OnInit {
   isSubmitted = false;
   isKnownBooking = false;
   serviceRequestedValue: string;
+  id: string;
+  packageInfo: PackageInfo;
 
   errorMessages = {
     firstName: "Please enter valid name",
@@ -58,17 +62,26 @@ export class BookingComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private http: HttpClient,
-    private route: ActivatedRoute
+    private route: ActivatedRoute, private packageInfoService: PackageInfoService
   ) {
     this.minDate = new Date();
   }
 
   ngOnInit() {
-    this.serviceRequestedValue = this.route.snapshot.paramMap.get('id');
-    this.isKnownBooking = !!this.serviceRequestedValue;
-
-    console.log("serviceRequestedValue "+this.serviceRequestedValue+"- serviceRequestedValue "+this.isKnownBooking);
-
+    this.route.params.subscribe(params => (this.id = params["id"]));
+    console.log("this.id" + this.id);
+    this.packageInfoService
+      .getpackageById(this.id)
+      .then((res: PackageInfo) => (this.packageInfo = res))
+      .then(() => {
+        if (this.packageInfo) {
+          this.serviceRequestedValue =
+            this.packageInfo.packageType + " - " + this.packageInfo.title;
+          this.isKnownBooking = !!this.serviceRequestedValue;
+          this.serviceRequested.patchValue(this.serviceRequestedValue);
+          this.serviceRequested.disable({onlySelf: this.isKnownBooking });
+        }
+      });
     this.contactUsForm = this.formBuilder.group(
       {
         firstName: ["", Validators.required],
@@ -78,10 +91,7 @@ export class BookingComponent implements OnInit {
           "",
           [Validators.required, Validators.pattern(this.mobnumPattern)]
         ],
-        serviceRequested: [
-          { value: this.serviceRequestedValue, disabled: this.isKnownBooking },
-          Validators.required
-        ],
+        serviceRequested: ['', Validators.required],
         startDate: ["", Validators.required],
         endDate: ["", [Validators.required]],
         additionalDetails: [""]
@@ -142,5 +152,8 @@ export class BookingComponent implements OnInit {
   }
   get additionalDetails() {
     return this.contactUsForm.get("additionalDetails");
+  }
+  get serviceRequested() {
+    return this.contactUsForm.get("serviceRequested");
   }
 }

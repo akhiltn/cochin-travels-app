@@ -16,7 +16,7 @@ export class TourDetailsService {
     return this.http.get<ItenaryInfo[]>(this.dataUrl);
   }
 
-  async getItenaryInfoById(id: number): Promise<ItenaryInfo[]>{
+  async getItenaryInfoById(id: string): Promise<ItenaryInfo[]>{
     await this.getItenaryInfo().toPromise().then(res => this.itenaryArray = res);   
     return this.itenaryArray.filter(data => data.packageID == id);
   }

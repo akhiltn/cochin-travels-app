@@ -26,7 +26,6 @@ const routes: Routes = [
     component: TourDetailsComponent,
     canActivate: [TourDetailsActivatorService]
   },
-  { path: "tourDetails", component: TourDetailsComponent },
   { path: "error", component: ErrorPageComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" }
 ];

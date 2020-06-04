@@ -38,17 +38,18 @@ section p {
   padding-right: 10px;
 }
 
-button {
-  background-color: rgba(0, 128, 0) !important;
+.book-button {
+  background-color: rgb(224, 17, 114) !important;
   color: white !important;
   position: sticky;
   bottom: 10px;
-  left: 5px;
+  left: 30%;
   z-index: 1;
-  margin-bottom: 5px;
   min-height: 50px;
-  min-width: 100px;
   font-weight: bold;
+  font-size: 20px;
+  min-width: 300px;
+  margin: 0 40%;
 }
 
 @media screen and (max-width: 600px) {
@@ -57,6 +58,10 @@ button {
   }
   section {
     font-size: 2vw;
+  }
+  .book-button {
+    min-width: 200px;
+    margin: 0 auto;
   }
 }
 

@@ -14,7 +14,7 @@ export class TourDetailsActivatorService implements CanActivate {
   constructor(private tourDetailService: TourDetailsService) {}
 
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
-    let id = +route.params["id"];
+    let id = route.params["id"];
     let isTruthy = false;
     await this.tourDetailService
       .getItenaryInfoById(id)
