@@ -23,7 +23,7 @@
 			<input matInput formControlName="mobile">
 			<mat-error>{{errorMessages.mobile}}</mat-error>
 		</mat-form-field>
-    <mat-form-field class="booking-form-field">
+		<mat-form-field class="booking-form-field">
 			<mat-label>Service Requested</mat-label>
 			<input matInput formControlName="serviceRequested">
 			<mat-error>{{errorMessages.serviceRequested}}</mat-error>
@@ -48,11 +48,18 @@
 			<mat-label>Additional Details</mat-label>
 			<textarea matInput placeholder="Ex. Require Driver with fluent English / or any other customization to you travel" formControlName="additionalDetails"></textarea>
 		</mat-form-field>
+
+		<re-captcha formControlName="recaptchaReactive"></re-captcha>
+
 		<div style="text-align:center;">
 			<button mat-raised-button color="primary" [disabled]="contactUsForm.invalid">Submit</button>
 		</div>
+		<em>*We provide customised tour-packages on request also for group packages we can offer better proce</em>
 	</form>
+
+
 	<div class="booking-info" *ngIf="isSubmitted">
-    <h3><i class="fa fa-check-circle"></i> Yay!! We will get in touch with you. Return to <a routerLink="/home">home page</a></h3>
+		<h3><i class="fa fa-check-circle"></i> Yay!! We will get in touch with you. Return to <a routerLink="/home">home
+				page</a></h3>
 	</div>
 </div>

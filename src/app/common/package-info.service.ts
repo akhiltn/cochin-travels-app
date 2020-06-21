@@ -22,9 +22,7 @@ export class PackageInfoService {
   }
 
   async getpackageById(id: string): Promise<PackageInfo> {
-    console.log("start "+id);
     await this.getpackageInfo().toPromise().then(res => this.packageInfoList = res);
-    console.log("check1"+JSON.stringify(this.packageInfoList.find(data => data.packageID == id)));
     return this.packageInfoList.find(data => data.packageID == id);
   }
 }

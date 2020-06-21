@@ -10,7 +10,7 @@ import { TourDetailsService } from "./tour-details.service";
 import { Observable, of } from "rxjs";
 
 @Injectable()
-export class TourDetailsActivatorService implements CanActivate {
+export class TourDetailsActivatorGuard implements CanActivate {
   constructor(private tourDetailService: TourDetailsService) {}
 
   async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {

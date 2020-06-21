@@ -11,10 +11,10 @@
 }
 
 mat-grid-list {
-  background: rgba(5, 29, 6, 0.829);
+  background: rgba(142, 238, 145, 0.829);
   border: 1px solid black;
   margin: 10px;
-  color: white;
+  color: rgb(12, 11, 11);
 }
 
 
@@ -24,9 +24,9 @@ img {
 }
 
 section {
-  font-size: .9vw;
-  border-top: 1px solid red;
-  border-bottom: 1px solid red;
+  font-size: 1vw;
+  border-top: 2px solid red;
+  border-bottom: 2px solid red;
   min-width: 100%;
   text-align: justify;
   margin-right: 10px;
@@ -39,18 +39,18 @@ section p {
 }
 
 .book-button {
-  background-color: rgb(224, 17, 114) !important;
+  background-color: rgb(224, 17, 179) !important;
   color: white !important;
   position: sticky;
   bottom: 10px;
-  left: 30%;
   z-index: 1;
   min-height: 50px;
   font-weight: bold;
   font-size: 20px;
-  min-width: 300px;
-  margin: 0 40%;
+  min-width: 20%; 
+  left: 40%; 
 }
+
 
 @media screen and (max-width: 600px) {
   .header {
@@ -59,10 +59,11 @@ section p {
   section {
     font-size: 2vw;
   }
-  .book-button {
-    min-width: 200px;
-    margin: 0 auto;
+
+  .book-button{
+    left: 35%; 
   }
+
 }
 
 

@@ -8,7 +8,8 @@ import { PackageInfoResolverService } from "./common/package-info-resolver.servi
 import { BookingComponent } from "./booking/booking.component";
 import { TourDetailsComponent } from "./tour-details/tour-details.component";
 import { ErrorPageComponent } from "./common/error-page/error-page.component";
-import { TourDetailsActivatorService } from "./common/tour-details-activator.service";
+import { TourDetailsActivatorGuard } from "./common/tour-details-activator.guard";
+import { BookingFormDeactivateGuard } from "./common/booking-form-deactivate.guard";
 
 const routes: Routes = [
   {
@@ -19,12 +20,12 @@ const routes: Routes = [
     }
   },
   { path: "about", component: AboutComponent },
-  { path: "booking/:id", component: BookingComponent },
-  { path: "booking", component: BookingComponent },
+  { path: "booking/:id", component: BookingComponent, canDeactivate: [BookingFormDeactivateGuard] },
+  { path: "booking", component: BookingComponent, canDeactivate: [BookingFormDeactivateGuard] },
   {
     path: "tourDetails/:id",
     component: TourDetailsComponent,
-    canActivate: [TourDetailsActivatorService]
+    canActivate: [TourDetailsActivatorGuard]
   },
   { path: "error", component: ErrorPageComponent },
   { path: "", redirectTo: "/home", pathMatch: "full" }

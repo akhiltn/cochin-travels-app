@@ -93,8 +93,9 @@ export class BookingComponent implements OnInit {
         ],
         serviceRequested: ['', Validators.required],
         startDate: ["", Validators.required],
-        endDate: ["", [Validators.required]],
-        additionalDetails: [""]
+        endDate: ["", Validators.required],
+        additionalDetails: [""],
+        recaptchaReactive: ["", Validators.required],
       },
       { validators: this.startEndDateValidator }
     );

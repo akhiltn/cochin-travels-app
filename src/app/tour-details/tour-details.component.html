@@ -2,7 +2,7 @@
 
 	<div class="header">
 		<h3>{{packageInfo.packageType}} Tour Package - {{packageInfo.title}}</h3>
-			<p>{{packageInfo.content}}</p>
+		<p>{{packageInfo.content}}</p>
 	</div>
 	<div class="content">
 		<mat-grid-list cols="4" rowHeight="2:1" rowHeight="200px" gutterSize='10px'
@@ -18,5 +18,10 @@
 				</mat-grid-tile>
 		</mat-grid-list>
 	</div>
-  <button class="book-button" mat-raised-button [routerLink] = "['/booking',packageInfo.packageID]">Book Package</button>
+
+	<price-table></price-table>
+
+	<button class="book-button" mat-raised-button [routerLink] = "['/booking',packageInfo.packageID]">Book Package</button>
+
+
 </div>

@@ -11,14 +11,12 @@ form {
   padding: 10px;
   width: 50%;
   margin: 50px auto;
+  font-size: 20px;
 }
 
 .booking-form-field {
   width: 100%;
-}
-
-.address_field {
-  min-height: 30px;
+  margin: 0;
 }
 
 .booking-info {
@@ -29,9 +27,21 @@ form {
     padding: 10px;
 }
 
+em {
+  font-size: 12px;
+  color: red;
+}
+
+re-captcha{
+  margin: 10px 10px auto;
+}
+
 @media only screen and (max-width: 600px) {
   .booking-info, form {
     width: 80%;
+  }
+  em {
+    font-size: 10px;
   }
 }
 
