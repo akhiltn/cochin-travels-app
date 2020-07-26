@@ -1,0 +1,37 @@
+.menu-spacer {
+  flex: 1 1 auto;
+}
+
+.custom-sidenav-container { 
+    position: inherit;
+    height: 100%;
+    display: inherit;
+    transform: inherit; 
+}
+
+img {
+  height: 50px;
+}
+
+#title {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 4vw;
+  padding-left: 10px;
+}
+
+@media only screen and (max-width: 600px) {
+  #title {
+  font-size: 7vw;
+}
+}
+
+
+.list-item-active {
+  font-weight: bold;
+  color: #ffbf00 !important;
+  background: rgba(240, 237, 237, 0.507);
+}
+
+a {
+  font-size: 16px;
+}

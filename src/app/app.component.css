@@ -1,0 +1,91 @@
+.appDiv{
+  line-height: 0px;
+}
+
+main {
+  background-color: lightsteelblue;
+  background-image: url("https://images.pexels.com/photos/753626/pexels-photo-753626.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-repeat: repeat-y;
+  min-height: 800px;
+} 
+
+.mat-icon {
+  font-size: 15px;
+}
+
+button {
+  color: white !important;
+  position: fixed;
+  right: 10px;
+  z-index: 1;
+  min-height: 80px;
+  min-width: 80px;
+  font-weight: bold;
+}
+
+.homeButton {
+  bottom: 10px;
+  background-color: rgba(0, 128, 0, 0.5) !important;
+}
+
+.homeButton:hover {
+  background-color: green !important;
+}
+
+.callButton{
+  bottom: 100px;
+  background-color: rgba(0, 0, 255, 0.5) !important;
+}
+
+.callButton:hover {
+  background-color: blue !important;
+}
+
+.emailButton:hover{
+  bottom: 190px;
+  background-color: orange !important;
+}
+
+.emailButton{
+  bottom: 190px;
+  background-color: rgba(255, 166, 0, 0.5) !important;
+}
+
+
+
+.mat-icon {
+  font-size: 30px;
+  vertical-align: middle;
+  position: relative;
+  top: -5px;
+}
+
+marquee {
+  padding: 1px 0;
+  margin:0;
+  background-color: #673AB7;
+  color: white;
+  font-family: "Lucida Console", Courier, monospace;
+  font-weight: bold;
+  letter-spacing: 2px;
+}
+
+/* unvisited link */
+marquee a:link {
+  color: #66ffcc;
+}
+
+/* visited link */
+marquee a:visited {
+  color: green;
+}
+
+/* mouse over link */
+marquee a:hover {
+  color: hotpink;
+}
+
+/* selected link */
+marquee a:active {
+  color: blue;
+}

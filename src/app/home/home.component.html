@@ -1,0 +1,8 @@
+<mat-tab-group *ngIf="packageInfoList"mat-stretch-tabs class="example-stretched-tabs mat-elevation-z4" color="primary"
+	backgroundColor="accent">
+	<div *ngFor="let pkg of pkgMap | keyvalue">
+    <mat-tab [label]="pkg.key">
+		<tour-package [packageInfoList]="pkg.value"></tour-package>
+	</mat-tab>
+	</div>
+</mat-tab-group>

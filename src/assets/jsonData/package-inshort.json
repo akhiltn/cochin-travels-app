@@ -1,0 +1,58 @@
+[
+ {
+   "packageID": "S1",
+   "packageType": "Standard",
+   "title": "04 Nights / 05 Days",
+   "subtitle": "From ₹9,999/person",
+   "content": "02Nt Munnar, 01 Night Thekkady, 01 Night Kumarakom/Alleppy , Cochin Drop",
+   "imageURL": "https://picsum.photos/200/300"
+ },
+ {
+   "packageID": "S2",
+   "packageType": "Standard",
+   "title": "05 Nights / 06 Days",
+   "subtitle": "From ₹10,999/person",
+   "content": "01Nt Athirampally, 02Nts Munnar, 01Nt Thekkady, 01Nt Kumarakom/Alleppey",
+   "imageURL": "https://picsum.photos/200/300"
+ },
+ {
+   "packageID": "3",
+   "packageType": "Standard",
+   "title": "06 Nights / 07 Days",
+   "subtitle": "From ₹12,999/person",
+   "content": "02Nts Munnar, 01Nt Thekkady, 01Nt Kumarakom /Alleppey, 02 Nts Kovalam ( Cape Excursion )",
+   "imageURL": "https://picsum.photos/200/300"
+ },
+ {
+   "packageID": "H4",
+   "packageType": "HoneyMoon",
+   "title": "05 Nights / 06 Days",
+   "subtitle": "From ₹18,999/person",
+   "content": "COCHIN | MUNNAR | THEKKADY | HOUSEBOAT | ALLEPPEY",
+   "imageURL": "https://picsum.photos/200/300"
+ },
+ {
+   "packageID": "5",
+   "packageType": "HoneyMoon",
+   "title": "08 Nights / 09 Days",
+   "subtitle": "From ₹24,999/person",
+   "content": "COCHIN | MUNNAR | THEKKADY | HOUSEBOAT | COCHIN",
+   "imageURL": "https://picsum.photos/200/300"
+ },
+ {
+   "packageID": "6",
+   "packageType": "Sabarimala",
+   "title": "03 Nights / 04 days",
+   "subtitle": "From ₹7500 /person",
+   "content": "Sabarimala ↣ Cochin ↣ Guruvayoor. Sent Enquire. Enquire about this package.",
+   "imageURL": "https://picsum.photos/200/300"
+ },
+ {
+   "packageID": "7",
+   "packageType": "Sabarimala",
+   "title": "03 Nights / 04 days",
+   "subtitle": "From ₹7500 /person",
+   "content": "Sabarimala ↣ Cochin ↣ Guruvayoor. Sent Enquire. Enquire about this package.",
+   "imageURL": "https://picsum.photos/200/300"
+ }
+]

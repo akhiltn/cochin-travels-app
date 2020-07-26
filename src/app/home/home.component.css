@@ -1,0 +1,13 @@
+/* active tab */
+::ng-deep .mat-tab-list .mat-tab-labels .mat-tab-label-active {
+color:white;
+background-color: rgba(168, 10, 31, 0.616);
+font-size: 25px;
+}
+
+
+
+/* ink bar */
+::ng-deep .mat-ink-bar {
+background-color: var(--primary-color,rgb(228, 108, 10)) !important;
+}

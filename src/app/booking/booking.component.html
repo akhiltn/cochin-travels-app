@@ -1,0 +1,65 @@
+<div class="main-container">
+	<div class="header">
+		<h2>Book Your Travel</h2>
+	</div>
+	<form class="booking-form" [formGroup]="contactUsForm" (ngSubmit)="onSubmit()" *ngIf="!isSubmitted">
+		<mat-form-field class="booking-form-field">
+			<mat-label>First Name</mat-label>
+			<input matInput formControlName="firstName">
+			<mat-error>{{errorMessages.firstName}}</mat-error>
+		</mat-form-field>
+		<mat-form-field class="booking-form-field">
+			<mat-label>Last Name</mat-label>
+			<input matInput formControlName="lastName">
+			<mat-error>{{errorMessages.firstName}}</mat-error>
+		</mat-form-field>
+		<mat-form-field class="booking-form-field">
+			<mat-label>Email</mat-label>
+			<input matInput formControlName="email">
+			<mat-error>{{errorMessages.email}}</mat-error>
+		</mat-form-field>
+		<mat-form-field class="booking-form-field">
+			<mat-label>Mobile Number</mat-label>
+			<input matInput formControlName="mobile">
+			<mat-error>{{errorMessages.mobile}}</mat-error>
+		</mat-form-field>
+		<mat-form-field class="booking-form-field">
+			<mat-label>Service Requested</mat-label>
+			<input matInput formControlName="serviceRequested">
+			<mat-error>{{errorMessages.serviceRequested}}</mat-error>
+		</mat-form-field>
+		<mat-form-field>
+			<mat-label>Choose a Start Date</mat-label>
+			<input matInput [min]="minDate" [matDatepicker]="picker1" formControlName="startDate">
+			<mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+			<mat-datepicker #picker1 disabled="false"></mat-datepicker>
+			<mat-error>{{errorMessages.startDate}}</mat-error>
+		</mat-form-field>&nbsp;
+		<mat-form-field>
+			<mat-label>Choose a End Date</mat-label>
+			<input matInput [min]="minDate" [matDatepicker]="picker2" formControlName="endDate" [errorStateMatcher]="errorMatcher">
+			<mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+			<mat-datepicker #picker2 disabled="false"></mat-datepicker>
+			<mat-error *ngIf="endDate.invalid && endDate.touched">{{errorMessages.startDate}}</mat-error>
+			<mat-error *ngIf="endDate.valid && contactUsForm.errors?.isStartGraterThanEndDateValidator">
+				{{errorMessages.startDateEndDate}}</mat-error>
+		</mat-form-field>
+		<mat-form-field class="booking-form-field address_field">
+			<mat-label>Additional Details</mat-label>
+			<textarea matInput placeholder="Ex. Require Driver with fluent English / or any other customization to you travel" formControlName="additionalDetails"></textarea>
+		</mat-form-field>
+
+		<re-captcha formControlName="recaptchaReactive"></re-captcha>
+
+		<div style="text-align:center;">
+			<button mat-raised-button color="primary" [disabled]="contactUsForm.invalid">Submit</button>
+		</div>
+		<em>*We provide customised tour-packages on request also for group packages we can offer better proce</em>
+	</form>
+
+
+	<div class="booking-info" *ngIf="isSubmitted">
+		<h3><i class="fa fa-check-circle"></i> Yay!! We will get in touch with you. Return to <a routerLink="/home">home
+				page</a></h3>
+	</div>
+</div>
