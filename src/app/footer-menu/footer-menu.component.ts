@@ -25,7 +25,7 @@ export class FooterMenuComponent implements OnInit {
 
   onResize(event) {
     let winSize = event.target.innerWidth;
-    if(winSize > 1000){
+    if(winSize > 1200){
       this.breakpoint = 4;
     }
     else if(winSize > 600){
