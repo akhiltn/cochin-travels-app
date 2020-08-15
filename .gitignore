@@ -41,3 +41,4 @@ package-lock.json
 # System Files
 .DS_Store
 Thumbs.db
+cochin_travels_ws.code-workspace
