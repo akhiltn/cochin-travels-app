@@ -120,6 +120,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "cochin-travels-app"
+    }
+  },
+  "defaultProject": "cochin-travels-app",
+  "cli": {
+    "analytics": false
+  }
 }
