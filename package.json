@@ -31,12 +31,12 @@
   "scripts": {
     "ng": "ng",
     "start": "node server.js",
+    "start:prod": "node server.js",
     "local": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "prod": "ng build --prod",
     "heroku-postbuild": "ng build --prod"
   },
   "devDependencies": {
