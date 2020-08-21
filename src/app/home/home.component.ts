@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
     } else {
       console.error("No Data " + this.packageInfoList);
     }
-    this.tab_num = this.packageInfoList.length;
+    this.tab_num = this.pkgMap.size;
   }
 
   setPkgMap(){

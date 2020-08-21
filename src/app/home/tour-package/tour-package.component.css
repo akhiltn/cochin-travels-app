@@ -16,7 +16,7 @@
 }
 
 p {
-  font-size: 10px;
+  font-size: 14px;
 }
 
 img {
@@ -40,4 +40,16 @@ button {
 @keyframes flash {
   from {color: blue;}
   to {color: green;}
+}
+
+@media only screen and (max-width: 600px) {
+  .package-card {
+    max-width: 300px;
+    margin: 10px;
+  }
+  
+  p {
+    font-size: 20px;
+  }
+
 }
