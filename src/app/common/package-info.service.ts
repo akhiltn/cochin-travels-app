@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { PackageInfo } from "./package-info";
 import { HttpClient } from "@angular/common/http";
 import { Subject, Observable } from "rxjs";
-import { filter } from "rxjs/operators";
+import { filter, map } from "rxjs/operators";
 
 @Injectable({
   providedIn: 'root',
@@ -21,8 +21,8 @@ export class PackageInfoService {
     return this.http.get<PackageInfo[]>(this.dataUrl) 
   }
 
-  async getpackageById(id: string): Promise<PackageInfo> {
-    await this.getpackageInfo().toPromise().then(res => this.packageInfoList = res);
-    return this.packageInfoList.find(data => data.packageID == id);
+  getpackageById(id: string): Observable<PackageInfo> {
+    return this.getpackageInfo()
+    .pipe(map(data => data.find(x => x.packageID == id)));
   }
 }

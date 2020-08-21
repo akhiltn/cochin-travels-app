@@ -47,7 +47,7 @@ export class BookingComponent implements OnInit {
   isSubmitted = false;
   isKnownBooking = false;
   serviceRequestedValue: string;
-  id: string;
+  packageId: string;
   packageInfo: PackageInfo;
 
   errorMessages = {
@@ -68,20 +68,21 @@ export class BookingComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.route.params.subscribe(params => (this.id = params["id"]));
-    console.log("this.id" + this.id);
-    this.packageInfoService
-      .getpackageById(this.id)
-      .then((res: PackageInfo) => (this.packageInfo = res))
-      .then(() => {
-        if (this.packageInfo) {
-          this.serviceRequestedValue =
-            this.packageInfo.packageType + " - " + this.packageInfo.title;
+    this.route.params.subscribe(params => {
+      this.packageId = params["id"];
+      if(this.packageId){
+        this.packageInfoService
+      .getpackageById(this.packageId).subscribe(res => {
+        this.packageInfo = res;
+        this.serviceRequestedValue = this.packageInfo.packageType + " - " + this.packageInfo.title;
           this.isKnownBooking = !!this.serviceRequestedValue;
           this.serviceRequested.patchValue(this.serviceRequestedValue);
           this.serviceRequested.disable({onlySelf: this.isKnownBooking });
-        }
       });
+      }
+    });
+
+
     this.contactUsForm = this.formBuilder.group(
       {
         firstName: ["", Validators.required],

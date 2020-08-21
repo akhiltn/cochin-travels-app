@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { ItenaryInfo } from "./itenary-info";
 import { HttpClient } from "@angular/common/http";
 import { Observable, of } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { filter, map } from 'rxjs/operators';
 
 @Injectable()
 export class TourDetailsService {
@@ -16,8 +16,7 @@ export class TourDetailsService {
     return this.http.get<ItenaryInfo[]>(this.dataUrl);
   }
 
-  async getItenaryInfoById(id: string): Promise<ItenaryInfo[]>{
-    await this.getItenaryInfo().toPromise().then(res => this.itenaryArray = res);   
-    return this.itenaryArray.filter(data => data.packageID == id);
+  getItenaryInfoById(id: string): Observable<ItenaryInfo[]>{
+    return this.getItenaryInfo().pipe(map(data => data.filter(data => data.packageID == id)));
   }
 }

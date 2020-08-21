@@ -1,27 +1,37 @@
-<div class="main-container" *ngIf="itenaryArray && packageInfo">
-
-	<div class="header">
-		<h3>{{packageInfo.packageType}} Tour Package - {{packageInfo.title}}</h3>
-		<p>{{packageInfo.content}}</p>
-	</div>
-	<div class="content">
-		<mat-grid-list cols="4" rowHeight="2:1" rowHeight="200px" gutterSize='10px'
-			*ngFor="let itenary of itenaryArray">
-			<mat-grid-tile>
-				<img [src]="itenary.imageURL" alt="destination_img" layout-fill>
+<div class="main-container" *ngIf="isIterationReady && isPackageReady">
+  <div class="header">
+    <h3>
+      {{ packageInfo.packageType }} Tour Package - {{ packageInfo.title }}
+    </h3>
+    <p>{{ packageInfo.content }}</p>
+  </div>
+  <div class="content">
+    <div *ngFor="let itenary of itenaryArray">
+      <mat-grid-list
+        cols="4"
+        rowHeight="200px"
+        gutterSize="10px"
+      >
+        <mat-grid-tile>
+          <img [src]="itenary?.imageURL" alt="destination_img" layout-fill />
         </mat-grid-tile>
-				<mat-grid-tile colspan='3'>
-					<section>
-						<h2>{{itenary.title}}</h2>
-						<p>{{itenary.content}}</p>
-					</section>
-				</mat-grid-tile>
-		</mat-grid-list>
-	</div>
+        <mat-grid-tile colspan="3">
+          <section>
+            <h2>{{ itenary?.title }}</h2>
+            <p>{{ itenary?.content }}</p>
+          </section>
+        </mat-grid-tile>
+      </mat-grid-list>
+    </div>
+  </div>
 
-	<price-table></price-table>
+  <price-table></price-table>
 
-	<button class="book-button" mat-raised-button [routerLink] = "['/booking',packageInfo.packageID]">Book Package</button>
-
-
+  <button
+    class="book-button"
+    mat-raised-button
+    [routerLink]="['/booking', packageInfo.packageID]"
+  >
+    Book Package
+  </button>
 </div>

@@ -8,18 +8,17 @@ import {
 import { ItenaryInfo } from "./itenary-info";
 import { TourDetailsService } from "./tour-details.service";
 import { Observable, of } from "rxjs";
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class TourDetailsActivatorGuard implements CanActivate {
   constructor(private tourDetailService: TourDetailsService) {}
 
-  async canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<boolean> {
+  canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     let id = route.params["id"];
     let isTruthy = false;
-    await this.tourDetailService
-      .getItenaryInfoById(id)
-      .then((res: ItenaryInfo[]) => (isTruthy = !!res.length));
-    console.log("canActivate  "+ id +" "+isTruthy);
-    return isTruthy;
+
+   return this.tourDetailService
+      .getItenaryInfoById(id).pipe(map(x => !!x.length));
   }
 }

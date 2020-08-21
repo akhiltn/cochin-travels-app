@@ -1,4 +1,4 @@
-import { BrowserModule, HAMMER_GESTURE_CONFIG, HammerGestureConfig } from "@angular/platform-browser";
+import { BrowserModule, HAMMER_GESTURE_CONFIG, HammerGestureConfig, HammerModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
 import { AppComponent } from "./app.component";
@@ -28,7 +28,7 @@ import {
   RecaptchaSettings,
   RecaptchaFormsModule
 } from "ng-recaptcha";
-import * as Hammer from 'hammerjs';
+import * as Hammer from 'hammerjs'; 
 
 
 export class MyHammerConfig extends HammerGestureConfig  {
@@ -59,7 +59,8 @@ export class MyHammerConfig extends HammerGestureConfig  {
     ReactiveFormsModule,
     MaterialModule,
     RecaptchaModule,
-    RecaptchaFormsModule
+    RecaptchaFormsModule,
+    HammerModule
   ],
   providers: [
     PackageInfoService,
