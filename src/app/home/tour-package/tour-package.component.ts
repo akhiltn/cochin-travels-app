@@ -16,4 +16,7 @@ export class TourPackageComponent implements OnInit {
 
   }
 
+  swipe(eventType){
+  }
+
 }

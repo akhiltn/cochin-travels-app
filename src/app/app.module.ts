@@ -1,4 +1,4 @@
-import { BrowserModule } from "@angular/platform-browser";
+import { BrowserModule, HAMMER_GESTURE_CONFIG, HammerGestureConfig, HammerModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
 import { AppComponent } from "./app.component";
@@ -28,6 +28,15 @@ import {
   RecaptchaSettings,
   RecaptchaFormsModule
 } from "ng-recaptcha";
+import * as Hammer from 'hammerjs'; 
+
+
+export class MyHammerConfig extends HammerGestureConfig  {
+  overrides = <any>{
+      // override hammerjs default configuration
+      swipe: { direction: Hammer.DIRECTION_ALL }
+  }
+}
 
 @NgModule({
   declarations: [
@@ -50,7 +59,8 @@ import {
     ReactiveFormsModule,
     MaterialModule,
     RecaptchaModule,
-    RecaptchaFormsModule
+    RecaptchaFormsModule,
+    HammerModule
   ],
   providers: [
     PackageInfoService,
@@ -64,6 +74,10 @@ import {
       useValue: {
         siteKey: "6Lf8o6cZAAAAAEBejRAVK374DkbPtWXGMJVFKWhJ"
       } as RecaptchaSettings
+    },
+    {
+      provide: HAMMER_GESTURE_CONFIG,
+      useClass: HammerGestureConfig
     }
   ],
   bootstrap: [AppComponent]

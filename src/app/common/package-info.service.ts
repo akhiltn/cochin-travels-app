@@ -2,7 +2,8 @@ import { Injectable } from "@angular/core";
 import { PackageInfo } from "./package-info";
 import { HttpClient } from "@angular/common/http";
 import { Subject, Observable } from "rxjs";
-import { filter } from "rxjs/operators";
+import { filter, map } from "rxjs/operators";
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -10,8 +11,8 @@ import { filter } from "rxjs/operators";
 export class PackageInfoService {
 
   private packageInfoList: PackageInfo[];
-  //private dataUrl = "https://sheetdb.io/api/v1/99hkiyco5j2az";
-  private dataUrl = "assets/jsonData/package-inshort.json";
+  private dataUrl = environment.UTIL_API+"/sheets/getSheetByID/Sheet1";
+  //private dataUrl = "assets/jsonData/package-inshort.json";
 
   constructor(private http: HttpClient) {
    
@@ -21,8 +22,8 @@ export class PackageInfoService {
     return this.http.get<PackageInfo[]>(this.dataUrl) 
   }
 
-  async getpackageById(id: string): Promise<PackageInfo> {
-    await this.getpackageInfo().toPromise().then(res => this.packageInfoList = res);
-    return this.packageInfoList.find(data => data.packageID == id);
+  getpackageById(id: string): Observable<PackageInfo> {
+    return this.getpackageInfo()
+    .pipe(map(data => data.find(x => x.packageID == id)));
   }
 }

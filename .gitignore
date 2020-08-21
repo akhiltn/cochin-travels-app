@@ -36,7 +36,9 @@ npm-debug.log
 yarn-error.log
 testem.log
 /typings
+package-lock.json
 
 # System Files
 .DS_Store
 Thumbs.db
+cochin_travels_ws.code-workspace

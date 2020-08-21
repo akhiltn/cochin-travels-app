@@ -1,4 +1,4 @@
-<div fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="25px">
+<div class="package-body" fxLayout="row wrap" fxLayout.xs="column" fxLayoutAlign="space-around center" fxLayoutGap="25px" (swipeleft)="swipe($event.type)" (swiperight)="swipe($event.type)">
 	<mat-card class="package-card" *ngFor="let packageInfo of packageInfoList">
 		<mat-card-header>
 			<mat-card-title>
