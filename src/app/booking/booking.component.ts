@@ -16,6 +16,7 @@ import { finalize, switchMap } from "rxjs/operators";
 import { ActivatedRoute, ParamMap } from "@angular/router";
 import { PackageInfo } from "../common/package-info";
 import { PackageInfoService } from "../common/package-info.service";
+import { environment } from 'src/environments/environment';
 /** Error when invalid control is dirty, touched, or submitted. */
 export class CrossFieldStateMatcher implements ErrorStateMatcher {
   isErrorState(
@@ -106,22 +107,22 @@ export class BookingComponent implements OnInit {
     const headers = new HttpHeaders()
       .set("Content-Type", "application/json")
       .set("Access-Control-Allow-Origin", "*")
-      .set("Custom_Val", "Akhil");
+      .set("recaptchaReactive", this.recaptchaReactive.value);
     this.http
       .post(
-        "https://postb.in/1590955813740-9417214612476",
+        environment.UTIL_API+"/email/postContactForm",
         JSON.stringify(this.contactUsForm.value),
         { headers }
       )
-      .pipe(finalize(() => (this.isSubmitted = true)))
       .subscribe(
         res => {
           console.log(res);
         },
         err => {
-          console.log(err.message);
+          alert("Sorry!! Web page ERROR.\nPlease send query to mail@cochintravels.com")
         }
       );
+      this.isSubmitted = true
   }
 
   startEndDateValidator: ValidatorFn = (
@@ -157,5 +158,9 @@ export class BookingComponent implements OnInit {
   }
   get serviceRequested() {
     return this.contactUsForm.get("serviceRequested");
+  }
+
+  get recaptchaReactive() {
+    return this.contactUsForm.get("recaptchaReactive");
   }
 }

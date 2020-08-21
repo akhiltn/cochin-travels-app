@@ -3,12 +3,14 @@ import { ItenaryInfo } from "./itenary-info";
 import { HttpClient } from "@angular/common/http";
 import { Observable, of } from 'rxjs';
 import { filter, map } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class TourDetailsService {
 
   itenaryArray: ItenaryInfo[];
-  private dataUrl = "assets/jsonData/tour-details.json";
+  //private dataUrl = "assets/jsonData/tour-details.json";
+  private dataUrl = environment.UTIL_API+"/sheets/getSheetByID/Sheet2";
 
   constructor(private http: HttpClient) {  }
 
