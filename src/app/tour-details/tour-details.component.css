@@ -6,7 +6,6 @@
 }
 
 .content {
-  padding: 10px;
   font-size:1.5vw;
 }
 
@@ -19,7 +18,8 @@ mat-grid-list {
 
 
 img {
-  width: 300px;
+  width: 800px;
+  height: 400px;
   object-fit: cover;
 }
 
@@ -57,7 +57,7 @@ section p {
     font-size: 4vw;
   }
   section {
-    font-size: 2vw;
+    font-size: 3vw;
   }
 
   .book-button{
