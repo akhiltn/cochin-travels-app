@@ -18,9 +18,10 @@ button {
   position: fixed;
   right: 10px;
   z-index: 1;
-  min-height: 80px;
-  min-width: 80px;
+  min-height: 70px;
+  min-width: 70px;
   font-weight: bold;
+  padding-right: 5px;
 }
 
 .homeButton {
@@ -51,12 +52,12 @@ button {
 }
 
 .waButton{
+  padding-right: 0px;
   bottom: 280px;
   background-color: #25d36570 !important;
 }
 
 .waButton:hover{
-  bottom: 280px;
   background-color: #25D366 !important;
 }
 
@@ -117,6 +118,6 @@ marquee a:active {
     bottom: 195px;
   }
   .waButton i{
-    font-size:30px
+    font-size:40px;
   }
 }
