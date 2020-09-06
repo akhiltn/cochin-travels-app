@@ -16,24 +16,35 @@ const routes: Routes = [
     path: "home",
     component: HomeComponent,
     resolve: {
-      packageInfoList: PackageInfoResolverService
-    }
+      packageInfoList: PackageInfoResolverService,
+    },
   },
   { path: "about", component: AboutComponent },
-  { path: "booking/:id", component: BookingComponent, canDeactivate: [BookingFormDeactivateGuard] },
-  { path: "booking", component: BookingComponent, canDeactivate: [BookingFormDeactivateGuard] },
+  {
+    path: "booking/:id",
+    component: BookingComponent,
+    canDeactivate: [BookingFormDeactivateGuard],
+  },
+  {
+    path: "booking",
+    component: BookingComponent,
+    canDeactivate: [BookingFormDeactivateGuard],
+  },
   {
     path: "tourDetails/:id",
     component: TourDetailsComponent,
-    canActivate: [TourDetailsActivatorGuard]
+    canActivate: [TourDetailsActivatorGuard],
   },
   { path: "error", component: ErrorPageComponent },
-  { path: "", redirectTo: "/home", pathMatch: "full" }
+  { path: "", redirectTo: "/home", pathMatch: "full" },
 ];
 
 @NgModule({
-  imports: [CommonModule, RouterModule.forRoot(routes, {scrollPositionRestoration: 'enabled'})],
+  imports: [
+    CommonModule,
+    RouterModule.forRoot(routes, { scrollPositionRestoration: "enabled" }),
+  ],
   exports: [RouterModule],
-  declarations: []
+  declarations: [],
 })
 export class RoutingModule {}

@@ -16,7 +16,6 @@ export class TourDetailsActivatorGuard implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     let id = route.params["id"];
-    let isTruthy = false;
 
    return this.tourDetailService
       .getItenaryInfoById(id).pipe(map(x => !!x.length));
