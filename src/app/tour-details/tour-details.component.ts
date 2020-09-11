@@ -18,6 +18,12 @@ export class TourDetailsComponent implements OnInit {
   isIterationReady = false;
   isPackageReady = false;
 
+  imgColSpan: number;
+  imgRowSpan =1;
+  contentColSpan: number;
+  contentRowSpan =1;
+  gridRowHeight = "200px";
+
   constructor(private tourDetailService: TourDetailsService, private route: ActivatedRoute, private packageInfoService: PackageInfoService) { }
 
   ngOnInit() {
@@ -30,6 +36,28 @@ export class TourDetailsComponent implements OnInit {
       this.packageInfo = res;
       this.isPackageReady = this.packageInfo.title.length > 0;
     });
+
+    let winSize = window.innerWidth;
+    if(winSize > 600){
+      this.contentColSpan = 3;
+      this.imgColSpan=1;
+    }
+    else{
+      this.contentColSpan = 4;
+      this.imgColSpan = 4;
+    }
+  }
+
+  onResize(event) {
+    let winSize = event.target.innerWidth;
+    if(winSize > 600){
+      this.contentColSpan = 3;
+      this.imgColSpan=1;
+    }
+    else{
+      this.contentColSpan = 4;
+      this.imgColSpan = 4;
+    }
   }
 
 

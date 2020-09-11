@@ -7,15 +7,11 @@
   </div>
   <div class="content">
     <div *ngFor="let itenary of itenaryArray">
-      <mat-grid-list
-        cols="4"
-        rowHeight="200px"
-        gutterSize="10px"
-      >
-        <mat-grid-tile>
+      <mat-grid-list cols="4" rowHeight="200px" gutterSize="10px" (window:resize)="onResize($event)">
+        <mat-grid-tile [colspan]="imgColSpan" [rowspan]="imgRowSpan">
           <img [src]="itenary?.imageURL" alt="destination_img" layout-fill />
         </mat-grid-tile>
-        <mat-grid-tile colspan="3">
+        <mat-grid-tile [colspan]="contentColSpan" [rowspan]="contentRowSpan">
           <section>
             <h2>{{ itenary?.title }}</h2>
             <p>{{ itenary?.content }}</p>

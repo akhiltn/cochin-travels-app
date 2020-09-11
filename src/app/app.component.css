@@ -18,9 +18,10 @@ button {
   position: fixed;
   right: 10px;
   z-index: 1;
-  min-height: 80px;
-  min-width: 80px;
+  min-height: 70px;
+  min-width: 70px;
   font-weight: bold;
+  padding-right: 5px;
 }
 
 .homeButton {
@@ -41,16 +42,28 @@ button {
   background-color: blue !important;
 }
 
-.emailButton:hover{
-  bottom: 190px;
-  background-color: orange !important;
-}
-
 .emailButton{
   bottom: 190px;
   background-color: rgba(255, 166, 0, 0.5) !important;
 }
 
+.emailButton:hover{
+  background-color: orange !important;
+}
+
+.waButton{
+  padding-right: 0px;
+  bottom: 280px;
+  background-color: #25d36570 !important;
+}
+
+.waButton:hover{
+  background-color: #25D366 !important;
+}
+
+.waButton i{
+  font-size:48px
+}
 
 
 .mat-icon {
@@ -88,4 +101,23 @@ marquee a:hover {
 /* selected link */
 marquee a:active {
   color: blue;
+}
+
+@media only screen and (max-width: 600px) {
+  button {
+    min-height: 40px;
+    min-width: 40px;
+  }
+  .callButton{
+    bottom: 70px;
+  }
+  .emailButton{
+    bottom: 130px;
+  }
+  .waButton{
+    bottom: 195px;
+  }
+  .waButton i{
+    font-size:40px;
+  }
 }
