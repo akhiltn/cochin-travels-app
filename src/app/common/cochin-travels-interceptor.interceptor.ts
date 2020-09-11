@@ -20,10 +20,7 @@ export class CochinTravelsInterceptorInterceptor implements HttpInterceptor {
         this.spinner.show()
         this.count++;
         return next.handle(req)
-            .pipe ( tap (
-                    event => console.log(event),
-                    error => console.log( error )
-                ), finalize(() => {
+            .pipe ( finalize(() => {
                     this.count--;
                     if ( this.count == 0 ) this.spinner.hide ()
                 })
