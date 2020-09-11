@@ -10,7 +10,7 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { FooterMenuComponent } from "./footer-menu/footer-menu.component";
 import { TourPackageComponent } from "./home/tour-package/tour-package.component";
 import { AboutComponent } from "./about/about.component";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { PackageInfoResolverService } from "./common/package-info-resolver.service";
 import { PackageInfoService } from "./common/package-info.service";
 import { BookingComponent } from "./booking/booking.component";
@@ -29,6 +29,8 @@ import {
   RecaptchaFormsModule
 } from "ng-recaptcha";
 import * as Hammer from 'hammerjs'; 
+import { NgxSpinnerModule } from 'ngx-spinner';
+import { CochinTravelsInterceptorInterceptor } from './common/cochin-travels-interceptor.interceptor';
 
 
 export class MyHammerConfig extends HammerGestureConfig  {
@@ -60,7 +62,8 @@ export class MyHammerConfig extends HammerGestureConfig  {
     MaterialModule,
     RecaptchaModule,
     RecaptchaFormsModule,
-    HammerModule
+    HammerModule,
+    NgxSpinnerModule
   ],
   providers: [
     PackageInfoService,
@@ -78,6 +81,11 @@ export class MyHammerConfig extends HammerGestureConfig  {
     {
       provide: HAMMER_GESTURE_CONFIG,
       useClass: HammerGestureConfig
+    },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CochinTravelsInterceptorInterceptor,
+      multi: true,
     }
   ],
   bootstrap: [AppComponent]
