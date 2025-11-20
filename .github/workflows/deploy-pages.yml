@@ -6,8 +6,9 @@ on:
       - main
       - feature/iteration-1
 
+# Make sure the workflow token has write permission for contents
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -18,6 +19,9 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        # ensure the checkout action keeps credentials so pushes can use the GITHUB_TOKEN
+        with:
+          persist-credentials: true
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
