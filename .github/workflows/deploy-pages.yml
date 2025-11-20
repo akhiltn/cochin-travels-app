@@ -3,8 +3,8 @@ name: Build and deploy Vite site to GitHub Pages
 on:
   push:
     branches:
-      # - main
-      - feature/iteration-1   # remove or change as needed
+      - main
+      - feature/iteration-1
 
 permissions:
   contents: read
@@ -19,7 +19,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Use Node.js 18
+      - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: 18
@@ -29,12 +29,9 @@ jobs:
         run: npm ci
 
       - name: Build
-        # expose Vite env var for Web3Forms key (if set in secrets)
-        env:
-          VITE_WEB3FORMS_KEY: ${{ secrets.WEB3FORMS_KEY }}
         run: npm run build
 
-      - name: Deploy to gh-pages
+      - name: Deploy to GitHub Pages branch
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
