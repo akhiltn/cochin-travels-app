@@ -4,17 +4,21 @@ on:
   push:
     branches:
       - main
+      - feature/iteration-1
 
 permissions:
   contents: write
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: npm
@@ -22,13 +26,13 @@ jobs:
 
       - name: Install dependencies
         working-directory: web
-        run: npm install
+        run: npm ci
 
       - name: Build
         working-directory: web
         run: npm run build
 
-      - name: Deploy
+      - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
