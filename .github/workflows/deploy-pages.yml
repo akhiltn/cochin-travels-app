@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - feature/iteration-1
 
 permissions:
   contents: write
