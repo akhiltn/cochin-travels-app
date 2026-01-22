@@ -1,6 +1,15 @@
-import { Box, Flex, HStack, IconButton, Spacer, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  HStack,
+  IconButton,
+  Image,
+  Spacer,
+  Text,
+} from "@chakra-ui/react";
 import { Link, useLocation } from "react-router-dom";
 import { LuMenu } from "react-icons/lu";
+import logo from "../assets/logo.svg";
 
 import {
   MenuRoot,
@@ -26,7 +35,23 @@ export default function TopNav() {
     >
       <Flex px={6} py={3} align="center">
         {/* Brand */}
-        <Text fontWeight="bold">Cochin Travels</Text>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <HStack gap={3}>
+            <Image
+              src={logo}
+              alt="Cochin Travels"
+              height={{ base: "28px", md: "36px" }}
+            />
+            <Text
+              fontWeight="900"
+              fontFamily="'Poppins', sans-serif"
+              fontSize={{ base: "lg", md: "2xl" }}
+              letterSpacing="wide"
+            >
+              Cochin Travels
+            </Text>
+          </HStack>
+        </Link>
 
         <Spacer />
 
