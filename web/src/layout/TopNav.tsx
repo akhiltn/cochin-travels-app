@@ -1,5 +1,5 @@
 import { Box, Flex, HStack, IconButton, Spacer, Text } from "@chakra-ui/react";
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { LuMenu } from "react-icons/lu";
 
 import {
@@ -33,11 +33,19 @@ export default function TopNav() {
         {/* Desktop navigation */}
         <HStack gap={4} display={{ base: "none", md: "flex" }}>
           <Button asChild variant={isActive("/") ? "solid" : "ghost"}>
-            <RouterLink to="/">Home</RouterLink>
+            <Link to="/">Home</Link>
           </Button>
 
           <Button asChild variant={isActive("/about") ? "solid" : "ghost"}>
-            <RouterLink to="/about">About</RouterLink>
+            <Link to="/about">About</Link>
+          </Button>
+
+          <Button asChild variant={isActive("/services") ? "solid" : "ghost"}>
+            <Link to="/services">Services</Link>
+          </Button>
+
+          <Button asChild variant={isActive("/contactus") ? "solid" : "ghost"}>
+            <Link to="/contactus">Contact Us</Link>
           </Button>
 
           {/* 🌗 Always visible */}
@@ -59,11 +67,19 @@ export default function TopNav() {
 
             <MenuContent>
               <MenuItem value="home" asChild>
-                <RouterLink to="/">Home</RouterLink>
+                <Link to="/">Home</Link>
               </MenuItem>
 
               <MenuItem value="about" asChild>
-                <RouterLink to="/about">About</RouterLink>
+                <Link to="/about">About</Link>
+              </MenuItem>
+
+              <MenuItem value="services" asChild>
+                <Link to="/services">Services</Link>
+              </MenuItem>
+
+              <MenuItem value="contactus" asChild>
+                <Link to="/contactus">Contact Us</Link>
               </MenuItem>
             </MenuContent>
           </MenuRoot>
