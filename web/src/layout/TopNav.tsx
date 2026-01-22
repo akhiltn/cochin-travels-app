@@ -57,7 +57,7 @@ export default function TopNav() {
               </IconButton>
             </MenuTrigger>
 
-            <MenuContent placement="bottom-end">
+            <MenuContent>
               <MenuItem value="home" asChild>
                 <RouterLink to="/">Home</RouterLink>
               </MenuItem>
