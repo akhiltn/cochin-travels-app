@@ -1,9 +1,8 @@
-// src/layout/Layout.tsx
 import { Outlet } from "react-router-dom";
 import TopNav from "./TopNav";
 import { Box } from "@chakra-ui/react";
 
-export default function Layout() {
+function Layout() {
   return (
     <>
       <TopNav />
@@ -13,3 +12,5 @@ export default function Layout() {
     </>
   );
 }
+
+export default Layout;

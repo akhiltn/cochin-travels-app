@@ -10,4 +10,4 @@ export const router = createHashRouter([
       { path: "about", element: <About /> },
     ],
   },
-])
+]);
