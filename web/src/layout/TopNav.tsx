@@ -1,6 +1,15 @@
-import { Box, Flex, HStack, IconButton, Spacer, Text } from "@chakra-ui/react";
-import { Link as RouterLink, useLocation } from "react-router-dom";
+import {
+  Box,
+  Flex,
+  HStack,
+  IconButton,
+  Image,
+  Spacer,
+  Text,
+} from "@chakra-ui/react";
+import { Link, useLocation } from "react-router-dom";
 import { LuMenu } from "react-icons/lu";
+import logo from "../assets/logo.svg";
 
 import {
   MenuRoot,
@@ -26,18 +35,42 @@ export default function TopNav() {
     >
       <Flex px={6} py={3} align="center">
         {/* Brand */}
-        <Text fontWeight="bold">Cochin Travels</Text>
+        <Link to="/" style={{ textDecoration: "none" }}>
+          <HStack gap={3}>
+            <Image
+              src={logo}
+              alt="Cochin Travels"
+              height={{ base: "28px", md: "36px" }}
+            />
+            <Text
+              fontWeight="900"
+              fontFamily="'Poppins', sans-serif"
+              fontSize={{ base: "lg", md: "2xl" }}
+              letterSpacing="wide"
+            >
+              Cochin Travels
+            </Text>
+          </HStack>
+        </Link>
 
         <Spacer />
 
         {/* Desktop navigation */}
         <HStack gap={4} display={{ base: "none", md: "flex" }}>
           <Button asChild variant={isActive("/") ? "solid" : "ghost"}>
-            <RouterLink to="/">Home</RouterLink>
+            <Link to="/">Home</Link>
           </Button>
 
           <Button asChild variant={isActive("/about") ? "solid" : "ghost"}>
-            <RouterLink to="/about">About</RouterLink>
+            <Link to="/about">About</Link>
+          </Button>
+
+          <Button asChild variant={isActive("/services") ? "solid" : "ghost"}>
+            <Link to="/services">Services</Link>
+          </Button>
+
+          <Button asChild variant={isActive("/contactus") ? "solid" : "ghost"}>
+            <Link to="/contactus">Contact Us</Link>
           </Button>
 
           {/* 🌗 Always visible */}
@@ -59,11 +92,19 @@ export default function TopNav() {
 
             <MenuContent>
               <MenuItem value="home" asChild>
-                <RouterLink to="/">Home</RouterLink>
+                <Link to="/">Home</Link>
               </MenuItem>
 
               <MenuItem value="about" asChild>
-                <RouterLink to="/about">About</RouterLink>
+                <Link to="/about">About</Link>
+              </MenuItem>
+
+              <MenuItem value="services" asChild>
+                <Link to="/services">Services</Link>
+              </MenuItem>
+
+              <MenuItem value="contactus" asChild>
+                <Link to="/contactus">Contact Us</Link>
               </MenuItem>
             </MenuContent>
           </MenuRoot>

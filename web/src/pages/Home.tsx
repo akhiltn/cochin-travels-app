@@ -1,10 +1,10 @@
-function Home() {
+import banner from "../assets/banner.png";
+import Banner from "@/components/custom/banner";
+
+export default function Home() {
   return (
     <>
-      <h1>Cochin Travels</h1>
-      <h2>Work in Progress</h2>
+      <Banner src={banner} />
     </>
   );
 }
-
-export default Home;
