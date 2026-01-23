@@ -29,7 +29,8 @@ export default function TopNav() {
       top={0}
       zIndex="sticky"
       borderBottomWidth="1px"
-      bg="bg.surface"
+      bg={{ base: "white", _dark: "gray.900" }}
+      boxShadow="sm"
     >
       <Flex px={6} py={3} align="center">
         <Text fontWeight="900" fontStyle="italic" fontSize="xl">
