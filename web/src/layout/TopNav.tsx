@@ -10,8 +10,8 @@ import {
 
 const navItems = [
   { label: "Home", id: "home" },
-  { label: "About", id: "about" },
   { label: "Services", id: "services" },
+  { label: "About", id: "about" },
   { label: "Contact Us", id: "contactus" },
 ];
 
