@@ -11,12 +11,12 @@ export default function Home() {
         <Banner src={banner} />
       </section>
 
-      <section id="about" style={{ scrollMarginTop: "80px" }}>
-        <About />
-      </section>
-
       <section id="services" style={{ scrollMarginTop: "80px" }}>
         <Services />
+      </section>
+
+      <section id="about" style={{ scrollMarginTop: "80px" }}>
+        <About />
       </section>
 
       <section id="contactus" style={{ scrollMarginTop: "80px" }}>
