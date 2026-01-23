@@ -1,5 +1,7 @@
+import PackageCarousel from "@/components/PackageCarousel";
+
 function Services() {
-  return <h1>Services</h1>;
+  return <PackageCarousel />;
 }
 
 export default Services;
