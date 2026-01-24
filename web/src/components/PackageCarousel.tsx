@@ -1,11 +1,4 @@
-import {
-  Box,
-  Heading,
-  HStack,
-  IconButton,
-  Image,
-  Text,
-} from "@chakra-ui/react";
+import { Box, HStack, IconButton, Image, Text } from "@chakra-ui/react";
 import { useEffect, useRef, useState } from "react";
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import { fetchUnsplashImages } from "../lib/unsplash";
@@ -55,8 +48,6 @@ export default function PackageCarousel() {
 
   return (
     <Box position="relative" py={8}>
-      <Heading mb={4}>Package Types</Heading>
-
       <IconButton
         aria-label="Left"
         variant="ghost"

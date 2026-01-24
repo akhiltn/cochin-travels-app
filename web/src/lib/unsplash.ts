@@ -1,11 +1,13 @@
 const ACCESS_KEY = import.meta.env.VITE_UNSPLASH_ACCESS_KEY;
+export const UNSPLASH_ACCESS_KEY =
+  "Q1QGgs_Y0rKSqaXoMRvyz3BWCK_mLDN2EAM6IOvb_-Q";
 
 export async function fetchUnsplashImages(query: string) {
   const res = await fetch(
     `https://api.unsplash.com/search/photos?query=${query}&per_page=10`,
     {
       headers: {
-        Authorization: `Client-ID ${ACCESS_KEY}`,
+        Authorization: `Client-ID ${UNSPLASH_ACCESS_KEY}`,
       },
     }
   );
