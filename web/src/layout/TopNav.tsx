@@ -1,4 +1,12 @@
-import { Box, Flex, HStack, IconButton, Spacer, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  HStack,
+  IconButton,
+  Image,
+  Spacer,
+  Text,
+} from "@chakra-ui/react";
 import { LuMenu } from "react-icons/lu";
 import { ColorModeButton } from "../components/ui/color-mode";
 import {
@@ -7,6 +15,7 @@ import {
   MenuContent,
   MenuItem,
 } from "../components/ui/menu";
+import logo from "../assets/logo.svg";
 
 const navItems = [
   { label: "Home", id: "home" },
@@ -33,10 +42,16 @@ export default function TopNav() {
       boxShadow="sm"
     >
       <Flex px={6} py={3} align="center">
-        <Text fontWeight="900" fontStyle="italic" fontSize="xl">
-          Cochin Travels
-        </Text>
-
+        <HStack gap={3} onClick={() => scrollTo("home")}>
+          <Image
+            src={logo}
+            alt="Cochin Travels"
+            height={{ base: "28px", md: "36px" }}
+          />
+          <Text fontWeight="900" fontStyle="italic" fontSize="xl">
+            Cochin Travels
+          </Text>
+        </HStack>
         <Spacer />
 
         {/* Desktop nav */}
