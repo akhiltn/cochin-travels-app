@@ -120,9 +120,10 @@ export default function ContactUs() {
                     height: "48px",
                     padding: "0 12px",
                     borderRadius: "6px",
-                    border: "1px solid #CBD5E0",
-                    backgroundColor: "white",
                     fontSize: "16px",
+                    border: "1px solid",
+                    backgroundColor: "var(--chakra-colors-bg)",
+                    color: "var(--chakra-colors-fg)",
                   }}
                 >
                   <option value="">Select enquiry type</option>
