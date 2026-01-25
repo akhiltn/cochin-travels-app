@@ -9,6 +9,12 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import { useMutation } from "@tanstack/react-query";
+import emailjs from "@emailjs/browser";
+
+// --------------------------------
+// Constants
+// --------------------------------
 
 const ENQUIRY_TYPES = [
   "Sabarimala Darshan",
@@ -18,35 +24,100 @@ const ENQUIRY_TYPES = [
   "Custom Package",
 ];
 
+// 🔐 EmailJS config (your real values)
+const SERVICE_ID = "service_vbz5h4l";
+const TEMPLATE_ID = "template_g4isqi6";
+const PUBLIC_KEY = "X22BZOaxvaap2RSJh";
+
+// --------------------------------
+// Helpers
+// --------------------------------
+
+const isValidEmail = (value: string) => {
+  if (!value) return true;
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+};
+
+// --------------------------------
+// Component
+// --------------------------------
+
 export default function ContactUs() {
+  const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
-  const [error, setError] = useState("");
+  const [enquiryType, setEnquiryType] = useState("");
+  const [message, setMessage] = useState("");
+  const [validationError, setValidationError] = useState("");
 
-  const isValidEmail = (value: string) => {
-    if (!value) return true;
-    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-  };
+  // --------------------------------
+  // React Query mutation
+  // --------------------------------
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  const mutation = useMutation({
+    mutationFn: () =>
+      emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          name,
+          mobile: phone,
+          email,
+          enquiry_type: enquiryType,
+          message,
+        },
+        PUBLIC_KEY
+      ),
 
+    onSuccess: () => {
+      // Reset all fields
+      setName("");
+      setPhone("");
+      setEmail("");
+      setEnquiryType("");
+      setMessage("");
+    },
+  });
+
+  // --------------------------------
+  // Submit handler (NO <form>)
+  // --------------------------------
+
+  const handleSubmit = () => {
+    setValidationError("");
+
+    // Either phone OR email required
     if (!phone.trim() && !email.trim()) {
-      setError("Please provide either a mobile number or an email address.");
+      setValidationError(
+        "Please provide either a mobile number or an email address."
+      );
       return;
     }
 
     if (email && !isValidEmail(email)) {
-      setError("Please enter a valid email address.");
+      setValidationError("Please enter a valid email address.");
       return;
     }
 
-    setError("");
-    alert("Enquiry submitted successfully!");
+    if (!enquiryType) {
+      setValidationError("Please select an enquiry type.");
+      return;
+    }
+
+    if (!message.trim()) {
+      setValidationError("Please enter your requirement.");
+      return;
+    }
+
+    mutation.mutate();
   };
 
+  // --------------------------------
+  // JSX
+  // --------------------------------
+
   return (
-    <Box py={{ base: 12, md: 20 }}>
+    <Box id="contact" py={{ base: 12, md: 20 }}>
       <Container maxW="5xl">
         <VStack gap={8} align="start">
           <Heading fontSize={{ base: "2xl", md: "3xl" }} fontWeight="900">
@@ -57,113 +128,97 @@ export default function ContactUs() {
             Share your travel requirements and we’ll get back to you shortly.
           </Text>
 
-          <form onSubmit={handleSubmit} style={{ width: "100%" }}>
-            <VStack gap={5}>
-              {/* Full Name */}
-              <Box w="100%">
-                <Text mb={1} fontWeight="500">
-                  Full Name *
-                </Text>
-                <Input
-                  name="name"
-                  placeholder="Enter your name"
-                  size="lg"
-                  required
-                />
-              </Box>
+          <VStack gap={5} w="100%">
+            {/* Full Name */}
+            <Input
+              placeholder="Full Name *"
+              size="lg"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
 
-              {/* Mobile */}
-              <Box w="100%">
-                <Text mb={1} fontWeight="500">
-                  Mobile Number
-                </Text>
-                <Input
-                  name="mobile"
-                  type="tel"
-                  placeholder="Enter your mobile number"
-                  size="lg"
-                  value={phone}
-                  onChange={(e) => setPhone(e.target.value)}
-                />
-              </Box>
+            {/* Mobile */}
+            <Input
+              placeholder="Mobile Number"
+              size="lg"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
 
-              {/* Email */}
-              <Box w="100%">
-                <Text mb={1} fontWeight="500">
-                  Email Address
-                </Text>
-                <Input
-                  name="email"
-                  type="email"
-                  placeholder="For itinerary / quotation"
-                  size="lg"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-                {!!email && !isValidEmail(email) && (
-                  <Text fontSize="sm" color="red.500" mt={1}>
-                    Please enter a valid email address.
-                  </Text>
-                )}
-              </Box>
+            {/* Email */}
+            <Input
+              placeholder="Email Address (optional)"
+              size="lg"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-              <Box w="100%">
-                <Text mb={1} fontWeight="500">
-                  Enquiry Type *
-                </Text>
+            {/* Enquiry Type */}
+            <select
+              value={enquiryType}
+              onChange={(e) => setEnquiryType(e.target.value)}
+              style={{
+                width: "100%",
+                height: "48px",
+                padding: "0 12px",
+                borderRadius: "6px",
+                fontSize: "16px",
+                border: "1px solid",
+                backgroundColor: "var(--chakra-colors-bg)",
+                color: "var(--chakra-colors-fg)",
+              }}
+            >
+              <option value="">Select enquiry type</option>
+              {ENQUIRY_TYPES.map((type) => (
+                <option key={type} value={type}>
+                  {type}
+                </option>
+              ))}
+            </select>
 
-                <select
-                  name="enquiry_type"
-                  required
-                  style={{
-                    width: "100%",
-                    height: "48px",
-                    padding: "0 12px",
-                    borderRadius: "6px",
-                    fontSize: "16px",
-                    border: "1px solid",
-                    backgroundColor: "var(--chakra-colors-bg)",
-                    color: "var(--chakra-colors-fg)",
-                  }}
-                >
-                  <option value="">Select enquiry type</option>
-                  {ENQUIRY_TYPES.map((type) => (
-                    <option key={type} value={type}>
-                      {type}
-                    </option>
-                  ))}
-                </select>
-              </Box>
+            {/* Message */}
+            <Textarea
+              rows={5}
+              placeholder="Travel date, number of people, pickup location"
+              size="lg"
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
+            />
 
-              {/* Message */}
-              <Box w="100%">
-                <Text mb={1} fontWeight="500">
-                  Message / Requirement *
-                </Text>
-                <Textarea
-                  name="message"
-                  rows={5}
-                  placeholder="Travel date, number of people, pickup location"
-                  size="lg"
-                  required
-                />
-              </Box>
-
-              {error && (
-                <Text color="red.500" fontSize="sm">
-                  {error}
-                </Text>
-              )}
-
-              <Button type="submit" size="lg" width="full">
-                Submit Enquiry
-              </Button>
-
-              <Text fontSize="sm" color="fg.muted">
-                We usually respond within 24 hours.
+            {/* Validation error */}
+            {validationError && (
+              <Text color="red.500" fontSize="sm">
+                {validationError}
               </Text>
-            </VStack>
-          </form>
+            )}
+
+            {/* Network error */}
+            {mutation.isError && (
+              <Text color="red.500" fontSize="sm">
+                Failed to send enquiry. Please try again later.
+              </Text>
+            )}
+
+            {/* Success */}
+            {mutation.isSuccess && (
+              <Text color="green.500" fontSize="sm">
+                Enquiry sent successfully! We’ll contact you shortly.
+              </Text>
+            )}
+
+            <Button
+              size="lg"
+              width="full"
+              loading={mutation.isPending}
+              onClick={handleSubmit}
+            >
+              Submit Enquiry
+            </Button>
+
+            <Text fontSize="sm" color="fg.muted">
+              We usually respond within 24 hours.
+            </Text>
+          </VStack>
         </VStack>
       </Container>
     </Box>
