@@ -9,6 +9,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const ENQUIRY_TYPES = [
   "Sabarimala Darshan",
@@ -18,17 +19,24 @@ const ENQUIRY_TYPES = [
   "Custom Package",
 ];
 
+// 🔐 EmailJS config (replace with your real values)
+const SERVICE_ID = "service_vbz5h4l";
+const TEMPLATE_ID = "template_g4isqi6";
+const PUBLIC_KEY = "X22BZOaxvaap2RSJh";
+
 export default function ContactUs() {
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   const isValidEmail = (value: string) => {
     if (!value) return true;
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
   };
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (!phone.trim() && !email.trim()) {
@@ -42,7 +50,26 @@ export default function ContactUs() {
     }
 
     setError("");
-    alert("Enquiry submitted successfully!");
+    setLoading(true);
+    setSuccess(false);
+
+    try {
+      await emailjs.sendForm(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        e.currentTarget,
+        PUBLIC_KEY
+      );
+
+      setSuccess(true);
+      e.currentTarget.reset();
+      setPhone("");
+      setEmail("");
+    } catch (err) {
+      setError("Failed to send enquiry. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -107,6 +134,7 @@ export default function ContactUs() {
                 )}
               </Box>
 
+              {/* Enquiry Type */}
               <Box w="100%">
                 <Text mb={1} fontWeight="500">
                   Enquiry Type *
@@ -155,7 +183,13 @@ export default function ContactUs() {
                 </Text>
               )}
 
-              <Button type="submit" size="lg" width="full">
+              {success && (
+                <Text color="green.500" fontSize="sm">
+                  Enquiry sent successfully! We’ll contact you shortly.
+                </Text>
+              )}
+
+              <Button type="submit" size="lg" width="full" loading={loading}>
                 Submit Enquiry
               </Button>
 
