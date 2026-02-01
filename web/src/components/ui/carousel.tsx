@@ -25,7 +25,22 @@ export const CarouselRoot = React.forwardRef<HTMLDivElement, CarouselRootProps>(
               <IconButton
                 aria-label="Toggle autoplay"
                 size="sm"
-                variant="ghost"
+                variant="solid"
+                bg="white"
+                color="gray.800"
+                boxShadow="md"
+                borderRadius="full"
+                _hover={{
+                  bg: "gray.100",
+                  transform: "scale(1.1)",
+                }}
+                _dark={{
+                  bg: "gray.800",
+                  color: "white",
+                  _hover: {
+                    bg: "gray.700",
+                  },
+                }}
               >
                 <AutoplayIcon />
               </IconButton>
@@ -42,7 +57,29 @@ export const CarouselControls = React.forwardRef<
   Carousel.ControlProps
 >(function CarouselControls(props, ref) {
   return (
-    <Carousel.Control ref={ref} {...props}>
+    <Carousel.Control 
+      ref={ref} 
+      {...props}
+      css={{
+        "& [data-part=control-trigger]": {
+          bg: "white",
+          color: "gray.800",
+          boxShadow: "md",
+          borderRadius: "full",
+          _hover: {
+            bg: "gray.100",
+            transform: "scale(1.1)",
+          },
+          _dark: {
+            bg: "gray.800",
+            color: "white",
+            _hover: {
+              bg: "gray.700",
+            },
+          },
+        }
+      }}
+    >
       <Carousel.PrevTrigger aria-label="Previous" />
       <Carousel.NextTrigger aria-label="Next" />
     </Carousel.Control>

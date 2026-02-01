@@ -55,12 +55,29 @@ export default function PackageCarousel() {
     <Box position="relative" py={8}>
       <IconButton
         aria-label="Left"
-        variant="ghost"
+        variant="solid"
+        bg="white"
+        color="gray.800"
+        boxShadow="md"
         position="absolute"
-        left={0}
+        left={{ base: 1, md: 2 }}
         top="50%"
         transform="translateY(-50%)"
+        zIndex={10}
+        borderRadius="full"
+        size={{ base: "sm", md: "md" }}
         onClick={() => scroll("left")}
+        _hover={{
+          bg: "gray.100",
+          transform: "translateY(-50%) scale(1.1)",
+        }}
+        _dark={{
+          bg: "gray.800",
+          color: "white",
+          _hover: {
+            bg: "gray.700",
+          },
+        }}
       >
         <LuChevronLeft />
       </IconButton>
@@ -109,12 +126,29 @@ export default function PackageCarousel() {
 
       <IconButton
         aria-label="Right"
-        variant="ghost"
+        variant="solid"
+        bg="white"
+        color="gray.800"
+        boxShadow="md"
         position="absolute"
-        right={0}
+        right={{ base: 1, md: 2 }}
         top="50%"
         transform="translateY(-50%)"
+        zIndex={10}
+        borderRadius="full"
+        size={{ base: "sm", md: "md" }}
         onClick={() => scroll("right")}
+        _hover={{
+          bg: "gray.100",
+          transform: "translateY(-50%) scale(1.1)",
+        }}
+        _dark={{
+          bg: "gray.800",
+          color: "white",
+          _hover: {
+            bg: "gray.700",
+          },
+        }}
       >
         <LuChevronRight />
       </IconButton>
