@@ -12,6 +12,11 @@ type UnsplashImage = {
 };
 
 const packageQueries = [
+  {
+    id: "sabarimala",
+    title: "Sabarimala",
+    query: "Sabarimala temple pilgrimage",
+  },
   { id: "kerala", title: "Kerala Tours", query: "Kerala backwaters" },
   { id: "honeymoon", title: "Honeymoon", query: "romantic travel couple" },
   { id: "family", title: "Family Trips", query: "family vacation travel" },
@@ -28,7 +33,7 @@ export default function PackageCarousel() {
       packageQueries.map(async (pkg) => {
         const imgs = await fetchUnsplashImages(pkg.query);
         return [pkg.id, imgs] as const;
-      })
+      }),
     ).then((results) => {
       const map: Record<string, UnsplashImage[]> = {};
       results.forEach(([id, imgs]) => (map[id] = imgs));
@@ -39,7 +44,7 @@ export default function PackageCarousel() {
 
   const scroll = (dir: "left" | "right") => {
     scrollRef.current?.scrollBy({
-      left: dir === "left" ? -320 : 320,
+      left: dir === "left" ? -420 : 420,
       behavior: "smooth",
     });
   };
@@ -77,7 +82,7 @@ export default function PackageCarousel() {
           return (
             <Box
               key={pkg.id}
-              minW="280px"
+              minW="380px"
               borderWidth="1px"
               borderRadius="lg"
               overflow="hidden"
@@ -86,7 +91,7 @@ export default function PackageCarousel() {
               <Image
                 src={img.urls.small}
                 alt={img.alt_description || pkg.title}
-                height="180px"
+                height="280px"
                 width="100%"
                 objectFit="cover"
               />
