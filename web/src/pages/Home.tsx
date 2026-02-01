@@ -1,8 +1,9 @@
 import banner from "../assets/banner.png";
-import Banner from "@/components/banner";
+import Banner from "@/components/Banner";
 import About from "./About";
 import Services from "./Services";
 import ContactUs from "./ContactUs";
+import PackageTypes from "./PackageTypes";
 
 export default function Home() {
   return (
@@ -21,6 +22,10 @@ export default function Home() {
 
       <section id="contactus" style={{ scrollMarginTop: "80px" }}>
         <ContactUs />
+      </section>
+
+      <section id="packagetypes" style={{ scrollMarginTop: "80px" }}>
+        <PackageTypes />
       </section>
     </>
   );
