@@ -117,7 +117,7 @@ export default function ContactUs() {
   // --------------------------------
 
   return (
-    <Box id="contact" py={{ base: 12, md: 20 }}>
+    <Box id="contactus" py={{ base: 12, md: 20 }}>
       <Container maxW="5xl">
         <VStack gap={8} align="start">
           <Heading fontSize={{ base: "2xl", md: "3xl" }} fontWeight="900">
