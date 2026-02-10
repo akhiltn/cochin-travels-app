@@ -13,6 +13,7 @@ function Services() {
         <Flex justify="center" mb={{ base: 6, md: 10 }}>
           <VStack gap={2} textAlign="center">
             <Heading
+              as="h2"
               fontSize={{ base: "2xl", md: "3xl" }}
               fontWeight="900"
               fontStyle="italic"

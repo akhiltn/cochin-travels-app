@@ -133,7 +133,11 @@ export default function ContactUs() {
       <Container maxW="6xl">
         <SimpleGrid columns={{ base: 1, md: 2 }} gap={{ base: 10, md: 16 }}>
           <VStack gap={6} align="start">
-            <Heading fontSize={{ base: "2xl", md: "3xl" }} fontWeight="900">
+            <Heading
+              as="h2"
+              fontSize={{ base: "2xl", md: "3xl" }}
+              fontWeight="900"
+            >
               Contact Cochin Travels
             </Heading>
             <Text color="fg.muted" fontSize={{ base: "md", md: "lg" }}>
