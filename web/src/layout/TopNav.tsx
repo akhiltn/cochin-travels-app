@@ -1,5 +1,7 @@
 import {
   Box,
+  Button,
+  Container,
   Flex,
   HStack,
   IconButton,
@@ -41,59 +43,76 @@ export default function TopNav() {
       bg={{ base: "white", _dark: "gray.900" }}
       boxShadow="sm"
     >
-      <Flex px={6} py={3} align="center">
-        <HStack gap={3} onClick={() => scrollTo("home")}>
-          <Image
-            src={logo}
-            alt="Cochin Travels"
-            height={{ base: "28px", md: "36px" }}
-          />
-          <Text fontWeight="900" fontStyle="italic" fontSize="xl">
-            Cochin Travels
-          </Text>
-        </HStack>
-        <Spacer />
-
-        {/* Desktop nav */}
-        <HStack gap={6} display={{ base: "none", md: "flex" }}>
-          {navItems.map((item) => (
-            <Text
-              key={item.id}
-              cursor="pointer"
-              fontWeight="500"
-              onClick={() => scrollTo(item.id)}
-            >
-              {item.label}
+      <Container maxW="6xl">
+        <Flex py={3} align="center">
+          <HStack
+            gap={3}
+            as="button"
+            type="button"
+            onClick={() => scrollTo("home")}
+          >
+            <Image
+              src={logo}
+              alt="Cochin Travels"
+              height={{ base: "28px", md: "36px" }}
+            />
+            <Text fontWeight="900" fontStyle="italic" fontSize="xl">
+              Cochin Travels
             </Text>
-          ))}
-          <ColorModeButton />
-        </HStack>
+          </HStack>
+          <Spacer />
 
-        {/* Mobile nav */}
-        <HStack gap={2} display={{ base: "flex", md: "none" }}>
-          <ColorModeButton />
+          {/* Desktop nav */}
+          <HStack gap={2} display={{ base: "none", md: "flex" }}>
+            {navItems.map((item) => (
+              <Button
+                key={item.id}
+                variant="ghost"
+                size="sm"
+                onClick={() => scrollTo(item.id)}
+              >
+                {item.label}
+              </Button>
+            ))}
+            <Button
+              colorPalette="blue"
+              size="sm"
+              onClick={() => scrollTo("contactus")}
+            >
+              Get Quote
+            </Button>
+            <ColorModeButton />
+          </HStack>
 
-          <MenuRoot closeOnSelect>
-            <MenuTrigger asChild>
-              <IconButton aria-label="Open menu" variant="ghost">
-                <LuMenu />
-              </IconButton>
-            </MenuTrigger>
+          {/* Mobile nav */}
+          <HStack gap={2} display={{ base: "flex", md: "none" }}>
+            <ColorModeButton />
 
-            <MenuContent>
-              {navItems.map((item) => (
-                <MenuItem
-                  key={item.id}
-                  value={item.id}
-                  onClick={() => scrollTo(item.id)}
-                >
-                  {item.label}
+            <MenuRoot closeOnSelect>
+              <MenuTrigger asChild>
+                <IconButton aria-label="Open menu" variant="ghost">
+                  <LuMenu />
+                </IconButton>
+              </MenuTrigger>
+
+              <MenuContent>
+                {navItems.map((item) => (
+                  <MenuItem
+                    key={item.id}
+                    value={item.id}
+                    onClick={() => scrollTo(item.id)}
+                  >
+                    {item.label}
+                  </MenuItem>
+                ))}
+                <MenuItem value="quote" onClick={() => scrollTo("contactus")}>
+                  Get Quote
                 </MenuItem>
-              ))}
-            </MenuContent>
-          </MenuRoot>
-        </HStack>
-      </Flex>
+              </MenuContent>
+            </MenuRoot>
+          </HStack>
+        </Flex>
+      </Container>
     </Box>
   );
 }
