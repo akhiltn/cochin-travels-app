@@ -10,6 +10,7 @@ export default function About() {
       <Container maxW="6xl">
         <VStack gap={6} align="start">
           <Heading
+            as="h2"
             fontSize={{ base: "2xl", md: "3xl" }}
             fontWeight="900"
             fontStyle="italic"
