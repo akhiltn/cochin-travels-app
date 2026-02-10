@@ -8,7 +8,7 @@ function Layout() {
   return (
     <>
       <TopNav />
-      <Box as="main" p={6} pb={24}>
+      <Box as="main" pb={{ base: 24, md: 28 }}>
         <Outlet />
       </Box>
       <Footer />

@@ -1,5 +1,5 @@
 import PackageCarousel from "@/components/PackageCarousel";
-import { Box, Container, Flex, Heading } from "@chakra-ui/react";
+import { Box, Container, Flex, Heading, Text, VStack } from "@chakra-ui/react";
 
 function Services() {
   return (
@@ -11,13 +11,19 @@ function Services() {
       <Container maxW="6xl">
         {/* Section heading */}
         <Flex justify="center" mb={{ base: 6, md: 10 }}>
-          <Heading
-            fontSize={{ base: "2xl", md: "3xl" }}
-            fontWeight="900"
-            fontStyle="italic"
-          >
-            Explore Our Packages
-          </Heading>
+          <VStack gap={2} textAlign="center">
+            <Heading
+              fontSize={{ base: "2xl", md: "3xl" }}
+              fontWeight="900"
+              fontStyle="italic"
+            >
+              Explore Our Packages
+            </Heading>
+            <Text color="fg.muted" maxW="2xl">
+              Curated journeys across Kerala, tailored for families, couples,
+              groups, and pilgrims.
+            </Text>
+          </VStack>
         </Flex>
 
         {/* Carousel */}
